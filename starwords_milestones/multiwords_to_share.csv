@@ -1,0 +1,392 @@
+child_anonim;group;match;elements_number;m_cat;age_at_element;word_type_id;name;form;words_per_utterance;meaning;l1;l2;l3;language;comment
+5;Bilinguals;match1;1;m1;11;4;MULTI_WORD;Nie ma.;2;Nie ma.;Polish;NA;NA;Polish;NA
+110;Bilinguals;match1;2;NA;28;4;MULTI_WORD;Maj chcę ;2;Mig chcę (ja chcę) ;Polish;Danish;NA;Polish;NA
+110;Bilinguals;match1;1;m3;23;4;MULTI_WORD;Pepi ma mamy;3;Mama ma pępek ;Polish;NA;NA;Polish;NA
+110;Bilinguals;match1;1;m1;23;4;MULTI_WORD;Pepi ma mamy;3;Mama ma pępek ;Polish;NA;NA;Polish;NA
+124;Bilinguals;match1;1;m1;20;4;MULTI_WORD;More cake;2;More cake;English;NA;NA;Polish;NA
+196;Bilinguals;match1;2;NA;24;4;MULTI_WORD;Nie chcę;2;Nie chcę;Polish;NA;NA;Polish;NA
+196;Bilinguals;match1;1;m1;24;4;MULTI_WORD;W tamtą stronę;3;W tamtą stronę;Polish;NA;NA;Polish;NA
+196;Bilinguals;match1;1;m3;24;4;MULTI_WORD;W tamtą stronę;3;W tamtą stronę;Polish;NA;NA;Polish;NA
+202;Bilinguals;match1;1;m1;19;4;MULTI_WORD;All gone / all done;2;Finished / no more left;English;NA;NA;English;NA
+243;Bilinguals;match1;1;m1;21;4;MULTI_WORD;Pies jest;2;Tam jest pies;Polish;NA;NA;Polish;NA
+243;Bilinguals;match1;2;NA;23;4;MULTI_WORD;Cisza już ;2;Ciocho bądź ;Polish;NA;NA;Polish;NA
+243;Bilinguals;match1;4;NA;21;4;MULTI_WORD;Chcę tam;2;Chcę tam pójść ;Polish;NA;NA;Polish;NA
+243;Bilinguals;match1;3;m3;23;4;MULTI_WORD;I love czypis;3;Kocham frytki;English;NA;NA;English;NA
+287;Bilinguals;match1;2;NA;18;4;MULTI_WORD;meaty meat;2;meat;English;NA;NA;English;NA
+287;Bilinguals;match1;5;NA;15;4;MULTI_WORD;cycy prosze;2;Prosze o cycusia (mleko);Polish;NA;NA;Polish;NA
+287;Bilinguals;match1;3;NA;18;4;MULTI_WORD;Ale bałagan!;2;Ale bałagan!;Polish;NA;NA;Polish;Kiedy widzi cos porozrzucane na podlodze.
+287;Bilinguals;match1;6;NA;15;4;MULTI_WORD;nie ma;2;nie ma ;Polish;NA;NA;Polish;NA
+287;Bilinguals;match1;1;m1;17;4;MULTI_WORD;Piżamka króliczki jest brudne;4;piżamka w króliczki jest brudna;Polish;NA;NA;Polish;NA
+287;Bilinguals;match1;7;m3;15;4;MULTI_WORD;shut the door;3;shut the door;English;NA;NA;English;NA
+287;Bilinguals;match1;8;NA;16;4;MULTI_WORD;bij brawo;2;bij brawo;Polish;NA;NA;Polish;NA
+287;Bilinguals;match1;4;NA;15;4;MULTI_WORD;jeszcze proszę ;2;jeszcze proszę ;Polish;NA;NA;Polish;NA
+287;Bilinguals;match1;1;m4;17;4;MULTI_WORD;Piżamka króliczki jest brudne;4;piżamka w króliczki jest brudna;Polish;NA;NA;Polish;NA
+291;Bilinguals;match1;1;m1;16;4;MULTI_WORD;Nie mama;2;Mama nie rob;Polish;NA;NA;Polish;NA
+291;Bilinguals;match1;2;NA;16;4;MULTI_WORD;Mama piciu;2;Szklanka mamy;Polish;NA;NA;Polish;NA
+291;Bilinguals;match1;3;NA;18;4;MULTI_WORD;Tu klosi;2;Tu sa klocki;Polish;NA;NA;Polish;NA
+390;Bilinguals;match1;1;m1;21;4;MULTI_WORD;Mamusiu choć;2;Mamusiu chodź ;Polish;NA;NA;Polish;NA
+672;Bilinguals;match1;1;m3;18;4;MULTI_WORD;Mama sidzi tu;3;Mama ma usiąść tu;Polish;NA;NA;Polish;NA
+672;Bilinguals;match1;1;m1;18;4;MULTI_WORD;Mama sidzi tu;3;Mama ma usiąść tu;Polish;NA;NA;Polish;NA
+672;Bilinguals;match1;3;m4;18;4;MULTI_WORD;A be ce katze;4;Początek piosenki abc die Katze lief in Schnee ;German;NA;NA;German;NA
+672;Bilinguals;match1;2;NA;18;4;MULTI_WORD;Alo baba;2;Halo baba;Polish;NA;NA;Polish;Z telefonem przy uchu
+1159;Bilinguals;match1;1;m1;23;4;MULTI_WORD;Tehas ja;2;Teraz ja;Polish;NA;NA;Polish;NA
+1159;Bilinguals;match1;2;NA;23;4;MULTI_WORD;Jehcie raz;2;Jeszcze raz;Polish;NA;NA;Polish;NA
+1305;Bilinguals;match1;1;m1;24;4;MULTI_WORD;Jaja bam;2;Eggs broke;Polish;NA;NA;Polish;NA
+1350;Bilinguals;match1;1;m1;13;4;MULTI_WORD;Sit down;2;I want to sit here;English;NA;NA;English;NA
+1350;Bilinguals;match1;3;NA;13;4;MULTI_WORD;More please;2;Can I have some more please;English;NA;NA;English;NA
+1350;Bilinguals;match1;2;NA;13;4;MULTI_WORD;Mammy shark;2;Mammy shark;English;NA;NA;English;NA
+1362;Bilinguals;match1;2;m3;14;4;MULTI_WORD;Okej coze nah;3;Ok, close now;English;NA;NA;English;NA
+1362;Bilinguals;match1;1;m1;14;4;MULTI_WORD;I know;2;I know;English;NA;NA;English;Używane jako wtrącenie konwersacyjne
+1624;Bilinguals;match1;1;m1;19;4;MULTI_WORD;Zrobiła si;2;Zrobiła siku;Polish;NA;NA;Polish;NA
+1624;Bilinguals;match1;2;m3;21;4;MULTI_WORD;Mama Doo doo;3;Piosenka Baby Shark;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;10;NA;19;4;MULTI_WORD;Tu jest;2;Tu jest;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;7;NA;19;4;MULTI_WORD;Chopic jedzie jowej;3;Chłopiec jedzie rowerem;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;3;NA;19;4;MULTI_WORD;Tata pokazał pociąg;3;Tata pokazal pociąg;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;12;NA;20;4;MULTI_WORD;Śmieciajka mig mig pojechała;3;Śmieciarka zamigała i pojechała;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;11;NA;20;4;MULTI_WORD;Mama pachnie psik psik;3;Mama pachnie perfumami;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;6;NA;19;4;MULTI_WORD;Cy sie dziji;3;Co się dzieje;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;5;NA;19;4;MULTI_WORD;Macinek zamknął. Bjawo;2;Marcinek zamknął brawo;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;2;NA;20;4;MULTI_WORD;Babcia poszła;2;Babcia poszła;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;13;NA;20;4;MULTI_WORD;Mama pomoc;2;Mamo pomóż;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;8;NA;19;4;MULTI_WORD;Cy sie zieje;3;Co się dzieje;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;4;NA;19;4;MULTI_WORD;Tata djapie;2;Tata drapie;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;9;NA;19;4;MULTI_WORD;Mama kocha;2;Kocham mamę;Polish;NA;NA;Polish;Spryciarz, często używa tego zwrotu, gdy chcę mu zrobic toaletę noska, oddać do żłobka.. woła wtedy mama kocha i się przytula
+2524;Bilinguals;match1;1;m3;20;4;MULTI_WORD;Pan klin położył;3;Pan położył klin;Polish;NA;NA;Polish;NA
+2524;Bilinguals;match1;1;m1;20;4;MULTI_WORD;Pan klin położył;3;Pan położył klin;Polish;NA;NA;Polish;NA
+2734;Bilinguals;match1;1;m1;15;4;MULTI_WORD;Mama am;2;Mama jeść;Polish;NA;NA;Polish;NA
+3131;Bilinguals;match1;3;m3;21;4;MULTI_WORD;Tinka Plopa nie ma;3;Penelopa nie ma szynki;Polish;NA;NA;Polish;NA
+3131;Bilinguals;match1;1;m1;21;4;MULTI_WORD;Plopa oć!;2;Penelopa, chodź!;Polish;NA;NA;Polish;NA
+3131;Bilinguals;match1;2;NA;21;4;MULTI_WORD;Szuka mama;2;Koszulka mamy;Polish;NA;NA;Polish;NA
+3295;Bilinguals;match1;3;m3;19;4;MULTI_WORD;Mama, chce pa ;3;Mum, I want to sleep ;Polish;NA;NA;Polish;NA
+3295;Bilinguals;match1;2;NA;19;4;MULTI_WORD;Ke kam (chcę tam) ;2;I want (to go) there ;Polish;NA;NA;Polish;NA
+3295;Bilinguals;match1;1;m1;16;4;MULTI_WORD;E ke ke (jeszcze chcę) ;2;I want more ;Polish;NA;NA;Polish;NA
+3295;Bilinguals;match1;4;NA;19;4;MULTI_WORD;Ty ga (ty graj) ;2;You play ;Polish;NA;NA;Polish;NA
+3295;Bilinguals;match1;5;NA;15;4;MULTI_WORD;Ne ke (nie chcę) ;2;Do not want ;Polish;NA;NA;Polish;NA
+3338;Bilinguals;match1;2;m3;20;4;MULTI_WORD;Papa auch son da;3;Pana auch schon sa/ Tata też już tu;German;NA;NA;German;NA
+3338;Bilinguals;match1;1;m1;20;4;MULTI_WORD;Czus gakgak;2;Pa kaczki;German;NA;NA;German;NA
+3751;Bilinguals;match1;4;m4;18;4;MULTI_WORD;Hello, how are you? ;4;When pretending to have a phone conversation;English;NA;NA;English;NA
+3751;Bilinguals;match1;1;m1;17;4;MULTI_WORD;Muddy puddles;2;Kiedy wskazuje na kaluze, jak rowniez gdy mowi o czynnosci ''jumping in muddy puddles';English;NA;NA;English;NA
+3751;Bilinguals;match1;2;NA;18;4;MULTI_WORD;Dzien dobry;2;Powitanie rano;Polish;NA;NA;Polish;NA
+3751;Bilinguals;match1;3;NA;19;4;MULTI_WORD;Hello Dziadzia;2;Welcoming her grandfather;Polish;English;NA;Polish,English;NA
+3875;Bilinguals;match1;1;m1;22;4;MULTI_WORD;Am am;2;Helenka jeść ;Polish;NA;NA;Polish;Wskazał palcem na pokój w którym Helenka zaczynała marudzić 
+4021;Bilinguals;match1;1;m1;22;4;MULTI_WORD;Cio to;2;Co to;Polish;NA;NA;Polish;NA
+4031;Bilinguals;match1;3;m3;21;4;MULTI_WORD;Et ou casque;3;Ou est le casque?;French;NA;NA;French;NA
+4031;Bilinguals;match1;2;NA;22;4;MULTI_WORD;Es belle;2;Klara est  belle ;French;NA;NA;French;NA
+4031;Bilinguals;match1;4;NA;22;4;MULTI_WORD;Te plait ;2;S'il te plaît ;French;NA;NA;French;NA
+4031;Bilinguals;match1;1;m1;22;4;MULTI_WORD;Peut enlever;2;Es-ce que tu peut enlever ;French;NA;NA;French;NA
+4143;Bilinguals;match1;1;m1;22;4;MULTI_WORD;Nie bu;2;Nie mam butów ;Polish;NA;NA;Polish;NA
+4220;Bilinguals;match1;1;m1;24;4;MULTI_WORD;Jem lody;2;Jem lody;German;NA;NA;German;NA
+4254;Bilinguals;match1;1;m1;23;4;MULTI_WORD;Dzidzia nie lalala;3;Dzidzia nie spiewa;Polish;NA;NA;Polish;NA
+4254;Bilinguals;match1;1;m3;23;4;MULTI_WORD;Dzidzia nie lalala;3;Dzidzia nie spiewa;Polish;NA;NA;Polish;NA
+4254;Bilinguals;match1;2;NA;23;4;MULTI_WORD;Dui muma;2;Duża krowa;Polish;NA;NA;Polish;NA
+4549;Bilinguals;match1;2;NA;19;4;MULTI_WORD;Mama niania;2;Mama ania;Polish;NA;NA;Polish;NA
+4549;Bilinguals;match1;1;m1;19;4;MULTI_WORD;Baba bam;2;Baba spadła;Polish;NA;NA;Polish;NA
+4549;Bilinguals;match1;3;NA;19;4;MULTI_WORD;Tata brum brum;2;Tata jedzie autem;Polish;NA;NA;Polish;NA
+4549;Bilinguals;match1;4;NA;19;4;MULTI_WORD;Mama bu;2;Mama dmucha;Polish;NA;NA;Polish;NA
+4582;Bilinguals;match1;1;m1;14;4;MULTI_WORD;Koo tam;2;Kto tam? ;Polish;NA;NA;Polish;Puk puk kto tam 
+4737;Bilinguals;match1;1;m1;15;4;MULTI_WORD;Co to?;2;Pytanie co to?;Polish;NA;NA;Polish;NA
+4817;Bilinguals;match1;1;m1;22;4;MULTI_WORD;to kce;2;to chce;Polish;NA;NA;Polish;NA
+4817;Bilinguals;match1;2;NA;22;4;MULTI_WORD;Tam bam;2;tam upadlo/upadlem;Polish;NA;NA;Polish;NA
+4851;Bilinguals;match1;1;m1;19;4;MULTI_WORD;Se mamma ;2;Spojrz mama;Polish;NA;NA;Polish;NA
+5163;Bilinguals;match1;4;m3;23;4;MULTI_WORD;Mama sitter dar;3;Mamo usiądź tu/tam;Polish;Norwegian;NA;Polish,Norwegian;NA
+5163;Bilinguals;match1;3;NA;23;4;MULTI_WORD;Mama min;2;Moja mama;Polish;Norwegian;NA;Polish,Norwegian;NA
+5163;Bilinguals;match1;1;m1;23;4;MULTI_WORD;Czysta pupa;2;Czysta pupa;Polish;NA;NA;Polish;NA
+5163;Bilinguals;match1;2;NA;23;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+5603;Bilinguals;match1;1;m1;14;4;MULTI_WORD;Da cy cy;2;Daj cycy;Polish;NA;NA;Polish;NA
+52;Monolinguals1;match1;1;m1;16;4;MULTI_WORD;Mama jeśt;2;Mama jest;Polish;NA;NA;Polish;NA
+52;Monolinguals1;match1;2;NA;17;4;MULTI_WORD;Mamo choć Michała;2;Choć do mnie;Polish;NA;NA;Polish;NA
+607;Monolinguals1;match1;1;m1;18;4;MULTI_WORD;Nie ce;2;Nie chcę;Polish;NA;NA;Polish;NA
+705;Monolinguals1;match1;2;NA;20;4;MULTI_WORD;Jeden schodek jeden schodek;2;Liczenie schodków podczas wspinania;Polish;NA;NA;Polish;NA
+705;Monolinguals1;match1;3;m4;20;4;MULTI_WORD;Idziemy obudzić ciocie Asię? ;4;Pytanie zadane babci;Polish;NA;NA;Polish;NA
+705;Monolinguals1;match1;4;NA;20;4;MULTI_WORD;Ja piersza chciałam smoczuś;4;Ja pierwszy chciałem smoczek. ;Polish;NA;NA;Polish;NA
+705;Monolinguals1;match1;5;m3;21;4;MULTI_WORD;Opiepiłaś mi piatło? ;3;Oświeciłaś mi światło? ;Polish;NA;NA;Polish;NA
+705;Monolinguals1;match1;1;m1;20;4;MULTI_WORD;Pojedziem z mamom na jowej ;5;Pojadę z mamą na rower ;Polish;NA;NA;Polish;NA
+1097;Monolinguals1;match1;1;m1;20;4;MULTI_WORD;Mama chodz tu, lub samo chodz tu;7;Używa dwu lub trzy wyrazowych zdań wołając ;Polish;NA;NA;Polish;NA
+1176;Monolinguals1;match1;1;m1;12;4;MULTI_WORD;Nie scę;2;Nie chcę;Polish;NA;NA;Polish;NA
+1411;Monolinguals1;match1;2;m3;24;4;MULTI_WORD;Tata nu nu;3;Tata nie;Polish;NA;NA;Polish;NA
+1411;Monolinguals1;match1;3;NA;23;4;MULTI_WORD;To ti;2;To ja;Polish;NA;NA;Polish;NA
+1411;Monolinguals1;match1;1;m1;24;4;MULTI_WORD;Mama oć;2;Mama chodź;Polish;NA;NA;Polish;NA
+1411;Monolinguals1;match1;4;NA;23;4;MULTI_WORD;Mama odź;2;Mama chodź;Polish;NA;NA;Polish;NA
+1411;Monolinguals1;match1;5;NA;23;4;MULTI_WORD;Kocham sie;2;Kocham Cie;Polish;NA;NA;Polish;NA
+1425;Monolinguals1;match1;3;NA;22;4;MULTI_WORD;Du pania;2;Do prania ;Polish;NA;NA;Polish;NA
+1425;Monolinguals1;match1;1;m1;22;4;MULTI_WORD;To tu;2;Co to;Polish;NA;NA;Polish;NA
+1425;Monolinguals1;match1;2;NA;22;4;MULTI_WORD;Ne ma;2;Nie ma;Polish;NA;NA;Polish;NA
+1669;Monolinguals1;match1;6;NA;23;4;MULTI_WORD;Mama chce myć pupa.;4;Mama chce umyć pupę.;Polish;NA;NA;Polish;NA
+1669;Monolinguals1;match1;5;NA;23;4;MULTI_WORD;Mama nie chcie dać maśło.;5;Mama nie chce dać masła.;Polish;NA;NA;Polish;NA
+1669;Monolinguals1;match1;1;m4;23;4;MULTI_WORD;Ja chcę czytać Pucio;4;Dziecko wskazuje przy tym konkretną książkę.;Polish;NA;NA;Polish;NA
+1669;Monolinguals1;match1;3;NA;23;4;MULTI_WORD;Ja mam. Tata też ma.;3;Opisanie sytuacji przy śniadaniu - ja mam owsiankę, tata też ma.;Polish;NA;NA;Polish;NA
+1669;Monolinguals1;match1;2;m3;23;4;MULTI_WORD;Tam jest dzieci.;3;Tam są dzieci.;Polish;NA;NA;Polish;NA
+1669;Monolinguals1;match1;1;m1;23;4;MULTI_WORD;Ja chcę czytać Pucio;4;Dziecko wskazuje przy tym konkretną książkę.;Polish;NA;NA;Polish;NA
+1669;Monolinguals1;match1;4;NA;23;4;MULTI_WORD;Mama nie chce iść tam.;5;Mama nie chce przyjść tam.;Polish;NA;NA;Polish;NA
+1716;Monolinguals1;match1;2;NA;11;4;MULTI_WORD;Hau am;2;Pies je;Polish;NA;NA;Polish;NA
+1716;Monolinguals1;match1;1;m1;10;4;MULTI_WORD;La La tata;2;Tańczymy tata;Polish;NA;NA;Polish;NA
+1773;Monolinguals1;match1;3;NA;19;4;MULTI_WORD;Nie ma;2;Nie ma (czegoś, kogos) ;Polish;NA;NA;Polish;NA
+1773;Monolinguals1;match1;1;m1;19;4;MULTI_WORD;Co to? ;2;Co to jest;Polish;NA;NA;Polish;NA
+1773;Monolinguals1;match1;2;NA;19;4;MULTI_WORD;Kto to? ;2;Kto to jest;Polish;NA;NA;Polish;NA
+1993;Monolinguals1;match1;1;m1;20;4;MULTI_WORD;Mama pracuje ;2;Mama pracuje;Polish;NA;NA;Polish;NA
+2019;Monolinguals1;match1;1;m3;23;4;MULTI_WORD;Jedziemy na trening ;3;Jedziemy na trening ;Polish;NA;NA;Polish;NA
+2019;Monolinguals1;match1;1;m1;23;4;MULTI_WORD;Jedziemy na trening ;3;Jedziemy na trening ;Polish;NA;NA;Polish;NA
+2111;Monolinguals1;match1;7;NA;23;4;MULTI_WORD;Niece chlap chlap;3;Nie chcę żebyś mnie polewała wodą ;Polish;NA;NA;Polish;NA
+2111;Monolinguals1;match1;4;NA;22;4;MULTI_WORD;Ja nie ka;3;Nie chcę (wkładać) kasku (rowerowego);Polish;NA;NA;Polish;NA
+2111;Monolinguals1;match1;2;NA;23;4;MULTI_WORD;Nie ce kaku;3;Nie chcę jeździć w kasku;Polish;NA;NA;Polish;NA
+2111;Monolinguals1;match1;6;NA;23;4;MULTI_WORD;Nie je ka;3;Nie ma kasku;Polish;NA;NA;Polish;NA
+2111;Monolinguals1;match1;1;m1;22;4;MULTI_WORD;Nie niete nana;3;Nie, nie chcę banana;Polish;NA;NA;Polish;NA
+2111;Monolinguals1;match1;5;NA;22;4;MULTI_WORD;Ja nie ka;3;Nie chcę włożyć kasku (czyli: nie chcę jechać rowerem);Polish;NA;NA;Polish;NA
+2111;Monolinguals1;match1;1;m3;22;4;MULTI_WORD;Nie niete nana;3;Nie, nie chcę banana;Polish;NA;NA;Polish;NA
+2111;Monolinguals1;match1;3;NA;24;4;MULTI_WORD;Nie je ato;3;Nie jeździj na moim autku;Polish;NA;NA;Polish;NA
+2125;Monolinguals1;match1;3;NA;16;4;MULTI_WORD;Co to;2;Co to;Polish;NA;NA;Polish;NA
+2125;Monolinguals1;match1;4;NA;23;4;MULTI_WORD;Pomóż mi;2;Pomóż mi;Polish;NA;NA;Polish;NA
+2125;Monolinguals1;match1;1;m1;17;4;MULTI_WORD;Nie ce;2;Nie chce;Polish;NA;NA;Polish;NA
+2125;Monolinguals1;match1;5;m3;23;4;MULTI_WORD;To tylko ja;3;To tylko ja;Polish;NA;NA;Polish;NA
+2125;Monolinguals1;match1;2;NA;16;4;MULTI_WORD;Kto to;2;Kto to;Polish;NA;NA;Polish;NA
+2229;Monolinguals1;match1;1;m1;14;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+2266;Monolinguals1;match1;1;m3;22;4;MULTI_WORD;Nie Ula juś;3;Ula juz nie. ;Polish;NA;NA;Polish;NA
+2266;Monolinguals1;match1;2;m4;22;4;MULTI_WORD;Tutaj jeście nie ma ;4;Tutaj jeszcze nie ma ;Polish;NA;NA;Polish;NA
+2266;Monolinguals1;match1;1;m1;22;4;MULTI_WORD;Nie Ula juś;3;Ula juz nie. ;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;1;m1;20;4;MULTI_WORD;Ni ma;2;Nie ma;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;2;NA;20;4;MULTI_WORD;Tu jest;2;Tu jest;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;3;m3;20;4;MULTI_WORD;Kto to jest;3;Kto to jest;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;9;NA;20;4;MULTI_WORD;Nie ksycymy;2;Nie krzyczymy;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;7;NA;17;4;MULTI_WORD;Daj mi;2;Daj mi;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;8;NA;21;4;MULTI_WORD;A to?;2;A to?;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;4;NA;20;4;MULTI_WORD;Co to jest;3;Co to jest;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;6;NA;17;4;MULTI_WORD;Chce to;2;Chce to;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;5;NA;21;4;MULTI_WORD;Amelka je am am;3;Amelka je;Polish;NA;NA;Polish;NA
+2279;Monolinguals1;match1;10;NA;20;4;MULTI_WORD;Jesce raz;2;Jeszcze raz;Polish;NA;NA;Polish;NA
+2291;Monolinguals1;match1;1;m1;19;4;MULTI_WORD;Cici brum brum pach pach;3;Kot jechał traktorem;Polish;NA;NA;Polish;NA
+2291;Monolinguals1;match1;2;NA;18;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+2291;Monolinguals1;match1;1;m3;19;4;MULTI_WORD;Cici brum brum pach pach;3;Kot jechał traktorem;Polish;NA;NA;Polish;NA
+2308;Monolinguals1;match1;1;m3;23;4;MULTI_WORD;Ja pomogę mamie;3;Jw;Polish;NA;NA;Polish;NA
+2308;Monolinguals1;match1;2;NA;23;4;MULTI_WORD;Uciekam stąd;2;Jw;Polish;NA;NA;Polish;NA
+2308;Monolinguals1;match1;1;m1;23;4;MULTI_WORD;Ja pomogę mamie;3;Jw;Polish;NA;NA;Polish;NA
+2395;Monolinguals1;match1;1;m1;20;4;MULTI_WORD;To chcę;2;To chcę;Polish;NA;NA;Polish;NA
+2486;Monolinguals1;match1;4;NA;21;4;MULTI_WORD;To nie to;3;To nie to;Polish;NA;NA;Polish;NA
+2486;Monolinguals1;match1;1;m1;15;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+2486;Monolinguals1;match1;6;NA;22;4;MULTI_WORD;Nie widzę tatusia;3;Nie widzę tatusia;Polish;NA;NA;Polish;NA
+2486;Monolinguals1;match1;3;m3;21;4;MULTI_WORD;Co to jest?;3;Co to jest?;Polish;NA;NA;Polish;NA
+2486;Monolinguals1;match1;2;NA;9;4;MULTI_WORD;Ne dada;2;Nie ma taty;Polish;NA;NA;Polish;"Przeszła całe mieszkanie i doniosła, że nie ma taty. A jak Spytałam ""nie ma taty?"" dopowiedziała ""nie"" z pomachaniem głowy. "
+2486;Monolinguals1;match1;5;NA;21;4;MULTI_WORD;Dwa cycusie;2;Dwie piersi;Polish;NA;NA;Polish;NA
+2535;Monolinguals1;match1;1;m3;21;4;MULTI_WORD;Tu bił paciom;3;Tu był pociąg;Polish;NA;NA;Polish;NA
+2535;Monolinguals1;match1;1;m1;21;4;MULTI_WORD;Tu bił paciom;3;Tu był pociąg;Polish;NA;NA;Polish;NA
+2574;Monolinguals1;match1;1;m1;15;4;MULTI_WORD;Dzie je tata?;3;Gdzie jest tata?;Polish;NA;NA;Polish;NA
+2574;Monolinguals1;match1;1;m3;15;4;MULTI_WORD;Dzie je tata?;3;Gdzie jest tata?;Polish;NA;NA;Polish;NA
+2613;Monolinguals1;match1;1;m1;21;4;MULTI_WORD;W mieście;2;W mieście;Polish;NA;NA;Polish;NA
+2615;Monolinguals1;match1;1;m1;16;4;MULTI_WORD;Am ba;2;Smoczek upadł;Polish;NA;NA;Polish;NA
+2674;Monolinguals1;match1;2;NA;16;4;MULTI_WORD;Jedzie auto;2;Pojazd się porusza;Polish;NA;NA;Polish;NA
+2674;Monolinguals1;match1;1;m1;23;4;MULTI_WORD;Co to?;2;Co to;Polish;NA;NA;Polish;NA
+2820;Monolinguals1;match1;1;m1;21;4;MULTI_WORD;Do ąta;2;Do kąta/ kara;Polish;NA;NA;Polish;NA
+2955;Monolinguals1;match1;1;m1;19;4;MULTI_WORD;Co to bylo;3;Co to bylo;Polish;NA;NA;Polish;NA
+2955;Monolinguals1;match1;1;m3;19;4;MULTI_WORD;Co to bylo;3;Co to bylo;Polish;NA;NA;Polish;NA
+3151;Monolinguals1;match1;1;m1;23;4;MULTI_WORD;Hej tata;2;Powitanie ;Polish;NA;NA;Polish;NA
+3235;Monolinguals1;match1;1;m3;14;4;MULTI_WORD;Mami nie ma;3;Mamo, nie ma czegoś;Polish;NA;NA;Polish;NA
+3235;Monolinguals1;match1;1;m1;14;4;MULTI_WORD;Mami nie ma;3;Mamo, nie ma czegoś;Polish;NA;NA;Polish;NA
+3235;Monolinguals1;match1;2;NA;14;4;MULTI_WORD;Tati, oć tu;3;Tato, chodź tu;Polish;NA;NA;Polish;NA
+3235;Monolinguals1;match1;3;NA;12;4;MULTI_WORD;Ne ce;2;Nie chcę;Polish;NA;NA;Polish;NA
+3235;Monolinguals1;match1;5;NA;14;4;MULTI_WORD;Nie ma;2;Nie ma (czegoś);Polish;NA;NA;Polish;NA
+3235;Monolinguals1;match1;4;NA;14;4;MULTI_WORD;Oć tu;2;Chodź tu;Polish;NA;NA;Polish;NA
+3281;Monolinguals1;match1;4;NA;20;4;MULTI_WORD;Chce to;2;Chcę daną rzecz ;Polish;NA;NA;Polish;NA
+3281;Monolinguals1;match1;2;NA;19;4;MULTI_WORD;Nie ce ;2;Nie chce;Polish;NA;NA;Polish;NA
+3281;Monolinguals1;match1;1;m1;19;4;MULTI_WORD;Ja chce;2;Ja chce ;Polish;NA;NA;Polish;NA
+3281;Monolinguals1;match1;3;NA;19;4;MULTI_WORD;Choc aaa;2;Chce spać ;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;5;m4;26;4;MULTI_WORD;Mamo, dzie moje buti?;4;Mamo, gdzie moje buty?;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;10;NA;26;4;MULTI_WORD;Baba ma kiesienie;3;Babcia ma kieszenie;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;13;NA;26;4;MULTI_WORD;Ziosia choja ;2;Zosia jest chora;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;17;NA;23;4;MULTI_WORD;Ja siama;2;Ja sama;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;9;NA;25;4;MULTI_WORD;Mama giji topy ma;4;Mama ma gołe stopy;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;4;NA;27;4;MULTI_WORD;Dzie to biło?;3;Gdzie to jest?;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;6;NA;29;4;MULTI_WORD;Mam kuku na pajeciu;4;Mam rankę na palcu;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;8;NA;26;4;MULTI_WORD;Nie fisie;2;Nie słyszę ;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;12;NA;26;4;MULTI_WORD;Bił tij ;2;Był tir;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;16;NA;22;4;MULTI_WORD;Dzidzia bobo;2;Kiedy chce być wzięta na ręce ;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;3;NA;29;4;MULTI_WORD;Choć domek budowamy;3;Chodź zbudujemy domek;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;15;NA;23;4;MULTI_WORD;Pupa tu;2;Usiądź tutaj;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;11;NA;26;4;MULTI_WORD;Mama chodź tu do mnie ;5;Mama chodź tu do mnie;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;2;m3;28;4;MULTI_WORD;Ja bajełam pani;3;Bałam się pani;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;7;NA;24;4;MULTI_WORD;Cioci Agi nie ma;3;Cioci Agi nie ma;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;1;m1;29;4;MULTI_WORD;Daj hamaci ;2;Daj flamastry;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;18;NA;26;4;MULTI_WORD;Tutaj mamy buty siom;3;Tutaj są mamy buty;Polish;NA;NA;Polish;NA
+3286;Monolinguals1;match1;14;NA;27;4;MULTI_WORD;Mama, ja nie cie ty jub tejaś;7;Mamo, nie chcę żebyś teraz tak robiła ;Polish;NA;NA;Polish;NA
+3369;Monolinguals1;match1;1;m1;15;4;MULTI_WORD;Co to?;2;Co to?;Polish;NA;NA;Polish;NA
+3507;Monolinguals1;match1;2;m3;23;4;MULTI_WORD;Co to jest? ;3;Co to jest? ;Polish;NA;NA;Polish;NA
+3507;Monolinguals1;match1;1;m1;23;4;MULTI_WORD;Jeszcze to! ;2;Jeszcze to;Polish;NA;NA;Polish;NA
+3507;Monolinguals1;match1;3;NA;23;4;MULTI_WORD;Pan policjant szop;3;Pan policjant szop;Polish;NA;NA;Polish;NA
+3507;Monolinguals1;match1;5;NA;23;4;MULTI_WORD;W łapce kawałki bandery;4;[miś] ma w łapce kawałki bandery;Polish;NA;NA;Polish;NA
+3507;Monolinguals1;match1;4;m4;23;4;MULTI_WORD;Podał misiowi zieloną butelkę;4;podał misiowi zieloną butelkę;Polish;NA;NA;Polish;NA
+3507;Monolinguals1;match1;6;NA;23;4;MULTI_WORD;Obudź Misia Uszatka, Bimbambom.;4;Chce, żeby pajacyk Bimbambom obudził Misia Uszatka ;Polish;NA;NA;Polish;Bimbambom i miś uszatek to postacie z bajki. 
+3549;Monolinguals1;match1;1;m3;16;4;MULTI_WORD;Dzin dzin ta;3;Chce odkurzać ;Polish;NA;NA;Polish;NA
+3549;Monolinguals1;match1;1;m1;16;4;MULTI_WORD;Dzin dzin ta;3;Chce odkurzać ;Polish;NA;NA;Polish;NA
+3705;Monolinguals1;match1;1;m1;17;4;MULTI_WORD;Tata mniam;2;Wołanie taty na posiłek;Polish;NA;NA;Polish;NA
+3723;Monolinguals1;match1;1;m1;18;4;MULTI_WORD;Tata myje ;2;Tata się myjev;Polish;NA;NA;Polish;NA
+3849;Monolinguals1;match1;3;m4;17;4;MULTI_WORD;Napisać maila do Jasia;4;Napisać maila do Jasia;Polish;NA;NA;Polish;NA
+3849;Monolinguals1;match1;1;m1;17;4;MULTI_WORD;Nie widzę;2;Nie widzę;Polish;NA;NA;Polish;NA
+3849;Monolinguals1;match1;2;NA;17;4;MULTI_WORD;Kto to?;2;Pytanie;Polish;NA;NA;Polish;NA
+3849;Monolinguals1;match1;4;NA;17;4;MULTI_WORD;Co to?;2;Co to?;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;1;m1;21;4;MULTI_WORD;Nio ma;2;Nie ma;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;9;NA;22;4;MULTI_WORD;Cie baje;2;Chcę bajkę;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;10;NA;22;4;MULTI_WORD;Nie ma jej;3;Nie ma jej;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;11;NA;22;4;MULTI_WORD;Tutaj nie ma bum bum;3;Tutaj nie ma samochodu;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;4;NA;21;4;MULTI_WORD;Sio tam;2;Idź sobie;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;12;NA;21;4;MULTI_WORD;Nie dam;2;Nie dam;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;8;NA;22;4;MULTI_WORD;Mamo ja tutaj;3;Mamo tutaj jestem;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;3;NA;20;4;MULTI_WORD;Moja baba;2;Moja babcia;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;2;m3;22;4;MULTI_WORD;Nie ma nic;3;Nie ma nic;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;5;NA;21;4;MULTI_WORD;To nie;2;To nie;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;6;NA;21;4;MULTI_WORD;Tik tik;2;Zegar;Polish;NA;NA;Polish;NA
+4134;Monolinguals1;match1;7;NA;20;4;MULTI_WORD;Gdzie tato?;2;Gdzie jest tata?;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;5;NA;24;4;MULTI_WORD;Plosze mama myjnia;3;Mamo proszę umyj;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;7;NA;23;4;MULTI_WORD;Tutuchka bam kawały;3;Ciuchcia spadła i rozpadła się na kawałki.;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;2;NA;23;4;MULTI_WORD;Gó-ka mamy am am buzia;5;Chcę ugryźć ogórka z mamy talerza.;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;4;NA;24;4;MULTI_WORD;O! Hula! Gotowe!;3;Hura, gotowe!;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;12;NA;23;4;MULTI_WORD;Lobak pi gudku;3;Robak śpi w ogródku.;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;6;NA;23;4;MULTI_WORD;Tata pii;2;Tata śpi;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;11;m4;23;4;MULTI_WORD;Ucha brzucha bąk nosa;4;Fragment wierszyka;Polish;NA;NA;Polish;Rysio po raz pierwszy mówi wierszyk bez zachęcania, czy podpowiadania.
+4313;Monolinguals1;match1;14;NA;23;4;MULTI_WORD;Ko to?;2;Kto to?;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;3;NA;24;4;MULTI_WORD;Będzie lalam;2;Będzie alarm;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;9;NA;23;4;MULTI_WORD;Ne ma mus dugi lony;2;Skończył mi się mus, chcę drugi, ale nie ten, tylko ten zielony.;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;8;NA;23;4;MULTI_WORD;Nie ma buwki;3;Nie ma borówki;Polish;NA;NA;Polish;NA
+4313;Monolinguals1;match1;1;m1;23;4;MULTI_WORD;Palka pycha budynki;3;Koparka spycha/ pcha klocki;Polish;NA;NA;Polish;"Poza ""mama czytaj"" to Rysia pierwsze zdanie!!"
+4313;Monolinguals1;match1;1;m3;23;4;MULTI_WORD;Palka pycha budynki;3;Koparka spycha/ pcha klocki;Polish;NA;NA;Polish;"Poza ""mama czytaj"" to Rysia pierwsze zdanie!!"
+4313;Monolinguals1;match1;13;NA;23;4;MULTI_WORD;Kot nami brum brum;4;Niech kot z nami pojedzie samochodem;Polish;NA;NA;Polish;Pierwsze zdania
+4313;Monolinguals1;match1;15;NA;23;4;MULTI_WORD;O to?;2;Co to?;Polish;NA;NA;Polish;Pierwszy dźwięk tego zdania ciężko określić.
+4313;Monolinguals1;match1;10;NA;23;4;MULTI_WORD;Dzony bijoł bim bam bom;3;Dzwony biją bim bam;Polish;NA;NA;Polish;NA
+4765;Monolinguals1;match1;2;NA;22;4;MULTI_WORD;Mama juś jet bujek Majek;5;Mama już jest wujek Marek;Polish;NA;NA;Polish;NA
+4765;Monolinguals1;match1;1;m1;21;4;MULTI_WORD;Niania jes ciocia;3;Hania jest ciocią ;Polish;NA;NA;Polish;NA
+4765;Monolinguals1;match1;1;m3;21;4;MULTI_WORD;Niania jes ciocia;3;Hania jest ciocią ;Polish;NA;NA;Polish;NA
+79;Monolinguals2;match2;1;m1;18;4;MULTI_WORD;Nie mama;2;Nie mama;Polish;NA;NA;Polish;NA
+227;Monolinguals2;match2;1;m1;19;4;MULTI_WORD;To moja mama;3;To moja mama;Polish;NA;NA;Polish;NA
+227;Monolinguals2;match2;1;m3;19;4;MULTI_WORD;To moja mama;3;To moja mama;Polish;NA;NA;Polish;NA
+366;Monolinguals2;match2;1;m1;17;4;MULTI_WORD;Da AM.;2;Dać jeść.;Polish;NA;NA;Polish;NA
+383;Monolinguals2;match2;1;m1;14;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+383;Monolinguals2;match2;2;m3;17;4;MULTI_WORD;Tika taka dzidzia dać;3;Daj mi zegarek;Polish;NA;NA;Polish;NA
+545;Monolinguals2;match2;1;m1;23;4;MULTI_WORD;Babcia i dziadziuś muszą pojechać husiu łi;7;Babcia i dziadziuś muszą pojechać na plac zabaw;Polish;NA;NA;Polish;NA
+634;Monolinguals2;match2;1;m1;22;4;MULTI_WORD;A cio to tatuś jobi?;5;Co robisz, tato?;Polish;NA;NA;Polish;NA
+639;Monolinguals2;match2;1;m1;23;4;MULTI_WORD;Cio to? ;2;Co to? ;Polish;NA;NA;Polish;NA
+686;Monolinguals2;match2;1;m1;14;4;MULTI_WORD;Nie m;2;Nie ma ;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;19;NA;20;4;MULTI_WORD;ubrać bucik;2;ubrać buta;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;1;m1;20;4;MULTI_WORD;sama ziupka;2;sama zupka;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;14;NA;20;4;MULTI_WORD;Doda dzie?;2;Woda gdzie?;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;9;NA;20;4;MULTI_WORD;bedzie muci;2;Będzie mleczko;Polish;NA;NA;Polish;Patrząc na moje piersi wieczorem
+708;Monolinguals2;match2;13;NA;20;4;MULTI_WORD;Nie da sie;3;Nie da się;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;8;NA;20;4;MULTI_WORD;Nie gadać;2;Nie gadać;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;5;NA;20;4;MULTI_WORD;Jaki kok;2;jaki skok;Polish;NA;NA;Polish;Skacząc po kanapie
+708;Monolinguals2;match2;21;NA;21;4;MULTI_WORD;Mama śpi, tata śpi, bobo śpi;2;Mama śpi, tata śpi, dziecko śpi;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;16;NA;20;4;MULTI_WORD;Mama idzie;2;Mama idzie;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;10;NA;20;4;MULTI_WORD;dzie ziepka;2;Gdzie rzepka;Polish;NA;NA;Polish;Szukając wiersza o rzepce
+708;Monolinguals2;match2;12;NA;20;4;MULTI_WORD;Potem biejeke;2;Potem biegamy;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;7;NA;20;4;MULTI_WORD;robić siusiu;2;robić siusiu;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;3;NA;20;4;MULTI_WORD;Koło mamie;2;Koło mamy;Polish;NA;NA;Polish;Chciała usiąść koło mamy
+708;Monolinguals2;match2;6;NA;20;4;MULTI_WORD;Nie ma bolulek;3;Nie ma borówek;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;17;NA;20;4;MULTI_WORD;dzidzi chcesz;2;dzidzi chcesz;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;2;m3;20;4;MULTI_WORD;Dzidzi jeść dziupke? Nie;3;Dzidzi jeść zupkę? Nie;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;18;NA;20;4;MULTI_WORD;Kupa idzie;2;kupa nadchodzi;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;4;NA;20;4;MULTI_WORD;Duga siuka;2;Druga skórka;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;20;NA;20;4;MULTI_WORD;jeść diupke;2;jeść zupkę;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;15;NA;20;4;MULTI_WORD;Jeszcze tatuś.;2;Jeszcze, tatuś.;Polish;NA;NA;Polish;NA
+708;Monolinguals2;match2;11;NA;20;4;MULTI_WORD;Ziobacić mame;2;Zobaczyć mamę;Polish;NA;NA;Polish;NA
+838;Monolinguals2;match2;2;NA;24;4;MULTI_WORD;Dziewczynko pobaw się ze mną ;5;Dziewczynko pobaw się ze mną ;Polish;NA;NA;Polish;NA
+838;Monolinguals2;match2;1;m1;24;4;MULTI_WORD;Przytul mnie najmocniej na świecie ;5;Przytul mnie najmocniej na świecie ;Polish;NA;NA;Polish;NA
+838;Monolinguals2;match2;3;NA;24;4;MULTI_WORD;Tatusiu nie zabieraj chorej julci;5;Jw;Polish;NA;NA;Polish;NA
+1417;Monolinguals2;match2;1;m1;15;4;MULTI_WORD;Mama tam;2;Mama chodź tam;Polish;NA;NA;Polish;NA
+1417;Monolinguals2;match2;2;NA;15;4;MULTI_WORD;Mama am;2;Jestem glodny;Polish;NA;NA;Polish;NA
+1417;Monolinguals2;match2;3;NA;15;4;MULTI_WORD;Mama daj;2;Mama daj mi to;Polish;NA;NA;Polish;NA
+1552;Monolinguals2;match2;2;NA;17;4;MULTI_WORD;Nie ce;2;Nie chcę;Polish;NA;NA;Polish;NA
+1552;Monolinguals2;match2;3;NA;14;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+1552;Monolinguals2;match2;1;m1;14;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+1878;Monolinguals2;match2;2;m3;21;4;MULTI_WORD;Tycio je ogurt;3;Tymon je jogurt ;Polish;NA;NA;Polish;NA
+1878;Monolinguals2;match2;1;m1;21;4;MULTI_WORD;Ocham cie;2;Kocham cię ;Polish;NA;NA;Polish;NA
+2115;Monolinguals2;match2;1;m3;13;4;MULTI_WORD;Hau hau y ma;3;Nie ma pieska;Polish;NA;NA;Polish;NA
+2115;Monolinguals2;match2;1;m1;13;4;MULTI_WORD;Hau hau y ma;3;Nie ma pieska;Polish;NA;NA;Polish;NA
+2232;Monolinguals2;match2;1;m1;18;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;2;NA;21;4;MULTI_WORD;Strażacy, ratunku, zderzyły się!;4;Zabawa w wypadek samochodowy ;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;17;NA;22;4;MULTI_WORD;Babcia dała bułki dla Irenki, żeby zjeść tę bułkę;9;Opis snu;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;4;NA;22;4;MULTI_WORD;Irenka sapie i stęka;4;Jw.;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;16;NA;21;4;MULTI_WORD;Mamusiu, mogę badać?;3;Czy możemy pobawić się stetoskopem;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;7;NA;21;4;MULTI_WORD;Babcia naziwa się Barabara;4;Babcia nazywa się Barbara ;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;18;NA;22;4;MULTI_WORD;Babcia Borowy przyjdzie tam zobaczyć taki wóz strażacki jak przyniosła ;10;Plany;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;11;NA;21;4;MULTI_WORD;Irenka rzucała na mamę i mama rzucała na Irenkę i Irenka rzucała na tatę śnieżki;15;W trakcie słuchania książki o zimowych aktywnościach ;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;3;NA;21;4;MULTI_WORD;Strażak, strażak pokaż rogi, dam Ci sera na pierogi;9;Własna wariacja na temat wierszyka;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;1;m1;22;4;MULTI_WORD;Irenka da panowi grabie;4;W trakcie zabawy naklejkami;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;10;NA;21;4;MULTI_WORD;Draakusiu, czy mogę balonika swojego?;5;Do kota, który bawił się sznurkiem od balona z helem Irenki;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;8;NA;21;4;MULTI_WORD;Irenka będzie rzucała do wujka Fifi piłeczka;7;Plan zabawy z wujkiem;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;6;m3;21;4;MULTI_WORD;Irenka ma przyjaciół;3;Reakcja na lekturę książki ;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;12;NA;22;4;MULTI_WORD;Wake up;2;Wake up;English;NA;NA;English;NA
+2251;Monolinguals2;match2;5;NA;21;4;MULTI_WORD;Sejłot;1;Say what?;English;NA;NA;English;NA
+2251;Monolinguals2;match2;9;NA;21;4;MULTI_WORD;Kruczek będzie miauczył;3;Kruczek (nasz kot) będzie miałczał podczas obcinania pazurów ;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;1;m4;22;4;MULTI_WORD;Irenka da panowi grabie;4;W trakcie zabawy naklejkami;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;13;NA;21;4;MULTI_WORD;Czy mogę/może?;2;Czy może wziąć rzecz należącą do kogoś innego;Polish;NA;NA;Polish;NA
+2251;Monolinguals2;match2;15;NA;21;4;MULTI_WORD;Spodnie ciepłe, zimne, Irenka chce spodnie ciepłe;4;Irenka zastanawiała się które spodnie wybrać dla postaci w układance ;Polish;NA;NA;Polish;Zdanie podczas samodzielnej zabawy układanką polegającą na dobrze ubrań dla postaci.
+2251;Monolinguals2;match2;14;NA;21;4;MULTI_WORD;Boli brzuszek Irenki, pani doktor bada.;3;Taki, jak powżej;Polish;NA;NA;Polish;Odgrywanie scenki z książeczki o dziewczynce, która poszła do lekarza.
+2890;Monolinguals2;match2;1;m1;25;4;MULTI_WORD;To wawa wode ;3;To woda psa;Polish;NA;NA;Polish;NA
+2890;Monolinguals2;match2;1;m3;25;4;MULTI_WORD;To wawa wode ;3;To woda psa;Polish;NA;NA;Polish;NA
+2890;Monolinguals2;match2;2;NA;25;4;MULTI_WORD;Ta baja mama;3;Tą bajkę mamo;Polish;NA;NA;Polish;NA
+2922;Monolinguals2;match2;2;NA;22;4;MULTI_WORD;Mamo juś;2;Już skończyłam/skończ;Polish;NA;NA;Polish;NA
+2922;Monolinguals2;match2;1;m1;22;4;MULTI_WORD;Nie, tu;2;Nie tam tylko tu (połóż,  pójdź, etc);Polish;NA;NA;Polish;NA
+2922;Monolinguals2;match2;3;m4;22;4;MULTI_WORD;Nie bo to moja;4;Nie bo to moje;Polish;NA;NA;Polish;NA
+3011;Monolinguals2;match2;3;NA;23;4;MULTI_WORD;Tata zabrał ;2;Tata zabrał ;Polish;NA;NA;Polish;NA
+3011;Monolinguals2;match2;4;NA;23;4;MULTI_WORD;Moja mama;2;Moja mama;Polish;NA;NA;Polish;NA
+3011;Monolinguals2;match2;1;m1;23;4;MULTI_WORD;Tata zabłał;2;Tata zabrał;Polish;NA;NA;Polish;NA
+3011;Monolinguals2;match2;2;NA;23;4;MULTI_WORD;Moja mama;2;Moja mama;Polish;NA;NA;Polish;NA
+3129;Monolinguals2;match2;1;m3;16;4;MULTI_WORD;Tatoj poje daloko;3;Traktor pojechał daleko;Polish;NA;NA;Polish;NA
+3129;Monolinguals2;match2;1;m1;16;4;MULTI_WORD;Tatoj poje daloko;3;Traktor pojechał daleko;Polish;NA;NA;Polish;NA
+3183;Monolinguals2;match2;1;m1;18;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+3374;Monolinguals2;match2;1;m1;19;4;MULTI_WORD;Ja tes;2;Ja też;Polish;NA;NA;Polish;NA
+3566;Monolinguals2;match2;1;m1;22;4;MULTI_WORD;Tuta mama;2;Tutaj mama;Polish;NA;NA;Polish;NA
+3566;Monolinguals2;match2;4;m3;21;4;MULTI_WORD;Tuta nie ma;3;Tutaj nie ma;Polish;NA;NA;Polish;NA
+3566;Monolinguals2;match2;3;NA;21;4;MULTI_WORD;Tuta tata;2;Tutaj tata;Polish;NA;NA;Polish;NA
+3566;Monolinguals2;match2;2;NA;20;4;MULTI_WORD;Nie ma;2;Nie ma;Polish;NA;NA;Polish;NA
+3566;Monolinguals2;match2;6;NA;21;4;MULTI_WORD;Papa Tato;2;Papa Tato;Polish;NA;NA;Polish;NA
+3566;Monolinguals2;match2;5;NA;21;4;MULTI_WORD;Papa Mamo;2;Papa Mamo;Polish;NA;NA;Polish;NA
+3566;Monolinguals2;match2;7;m4;21;4;MULTI_WORD;Tuta teś nie ma;4;Tutaj też nie ma;Polish;NA;NA;Polish;NA
+3594;Monolinguals2;match2;1;m3;23;4;MULTI_WORD;Plalka wypła kosiulke;3;Pralka wypierze koszulkę ;Polish;NA;NA;Polish;NA
+3594;Monolinguals2;match2;1;m1;23;4;MULTI_WORD;Plalka wypła kosiulke;3;Pralka wypierze koszulkę ;Polish;NA;NA;Polish;NA
+3594;Monolinguals2;match2;2;NA;23;4;MULTI_WORD;Trzeba tutaj odkręcić i zamykamy tu;6;Zabawa słoikiem z nakrętką;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;21;NA;23;4;MULTI_WORD;Nie myślę, jaka to książka ;5;"Odpowiedź na pytanie ""Jak myślisz, jaka to książka?"" - domyślam się, że znaczenie to, ""nie wiem jaka to książka"" ";Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;1;m1;23;4;MULTI_WORD;Mamusiu, zapal lampę, wtedy będzie świecić lampa ;7;Jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;5;NA;20;4;MULTI_WORD;Bardzo dziękuję;2;jw;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;3;m4;22;4;MULTI_WORD;Obieram marchewkę na rosoła;4;Obieram marchewkę do rosołu. ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;25;NA;23;4;MULTI_WORD;Tatuś ma fajną pracę.;4;Zadanie skierowane do taty na widok zdalnej pracy w sypialni.;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;22;NA;23;4;MULTI_WORD;Tata, jechaj!;2;Tato, jedź!;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;24;NA;23;4;MULTI_WORD;Mamusiu czytaj dalej.;3;Prośba o kontynuowanie czytania książki;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;23;NA;22;4;MULTI_WORD;Dzień dobry mamusiu Olu ;4;Przywitanie po drzemce ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;4;NA;24;4;MULTI_WORD;Mamo, kup jakieś kalosze dla Stasia, bo teraz mam śniegowce. ;10;Jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;14;NA;22;4;MULTI_WORD;Nie chcę tej piłki, bo ona ucieka ;7;Jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;26;NA;23;4;MULTI_WORD;To mój ulubiony motor.;4;Pokazując na zabawkę;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;9;NA;20;4;MULTI_WORD;Uderzyłem się w pralkę, bo ruszałem nogą. ;7;Jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;27;NA;23;4;MULTI_WORD;Mamo powycieraj mnie, bo jestem brudny;6;Jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;11;NA;22;4;MULTI_WORD;To chyba pociąg ;3;Słysząc, że odgłos jadącego pociągu ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;2;NA;23;4;MULTI_WORD;Zapal tu światło, bo jasno;5;Prośba, żeby zapalić światło, bo w pokoju jest ciemno ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;20;NA;23;4;MULTI_WORD;Nie dawam pieluchów ;3;Nie dam pieluszki ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;10;NA;22;4;MULTI_WORD;Idę do stołu;3;Idę usiąść przy stole ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;18;NA;21;4;MULTI_WORD;Staś pije zupkę dyniową;4;Dosłowne ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;19;NA;21;4;MULTI_WORD;Pani doktor słucha kamerą serduszka ;5;W ten sposób rozumie badanie usg brzucha ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;12;NA;22;4;MULTI_WORD;Nie chcę latarki, bo mam wywrotkę;6;Jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;13;NA;21;4;MULTI_WORD;Mamusiu co to jest? ;4;Pyta o to, czym są rzeczy, które wskazuje ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;6;m3;20;4;MULTI_WORD;Nie mam kiwów;3;Nie mam kiwi ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;7;NA;20;4;MULTI_WORD;Babcia Marysia gotuje kapuśniak.;4;jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;15;NA;23;4;MULTI_WORD;Tatuś włączył wycieraczki, bo pada deszcz. ;6;Jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;8;NA;20;4;MULTI_WORD;Tatuś położył głośnik na parapecie.;5;jw ;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;16;NA;21;4;MULTI_WORD;Mamusiu nie gadaj;3;Prośba, aby mama nie mówiła;Polish;NA;NA;Polish;NA
+3641;Monolinguals2;match2;17;NA;21;4;MULTI_WORD;Mama włączy piosenkę;3;jw ;Polish;NA;NA;Polish;NA
+3969;Monolinguals2;match2;2;NA;17;4;MULTI_WORD;Ta, ta.;2;Tak, tak.;Polish;NA;NA;Polish;NA
+3969;Monolinguals2;match2;6;m3;17;4;MULTI_WORD;Mama (nie) pumpum.;3;Mama nie ma pompona na koszulce.;Polish;NA;NA;Polish;W miejsce (nie) nie mówi słowa, tylko kręci głową.
+3969;Monolinguals2;match2;1;m1;18;4;MULTI_WORD;Tu lala.;2;Tu jest lala.;Polish;NA;NA;Polish;NA
+3969;Monolinguals2;match2;5;NA;16;4;MULTI_WORD;Tata tu.;2;Tata, usiądź tu.;Polish;NA;NA;Polish;NA
+3969;Monolinguals2;match2;3;NA;16;4;MULTI_WORD;Mama tam.;2;Mama, chodź tam.;Polish;NA;NA;Polish;NA
+3969;Monolinguals2;match2;4;NA;17;4;MULTI_WORD;Tata pumpum.;2;Tata ma pompon na koszulce.;Polish;NA;NA;Polish;NA
+4033;Monolinguals2;match2;1;m1;16;4;MULTI_WORD;Choc tam;2;Choc tam;Polish;NA;NA;Polish;NA
+4033;Monolinguals2;match2;3;m3;20;4;MULTI_WORD;Woda leci zuuu;3;Początkowo fontanna później każdy rodzaj zbiornika wodnego, a także w ten sposób prosi o nalanie wody.;Polish;NA;NA;Polish;NA
+4033;Monolinguals2;match2;2;NA;20;4;MULTI_WORD;Idziemy nody;2;Idziemy na lody;Polish;NA;NA;Polish;NA
+4033;Monolinguals2;match2;4;NA;20;4;MULTI_WORD;Idz ze mną ;3;Mam gdzieś z nią iść ;Polish;NA;NA;Polish;NA
+4248;Monolinguals2;match2;1;m1;17;4;MULTI_WORD;Co to je?;3;Co to jest ;Polish;NA;NA;Polish;NA
+4248;Monolinguals2;match2;1;m3;17;4;MULTI_WORD;Co to je?;3;Co to jest ;Polish;NA;NA;Polish;NA
+4810;Monolinguals2;match2;1;m1;21;4;MULTI_WORD;Tu nie ma nic;4;Tu nie ma nic;Polish;NA;NA;Polish;NA
+4810;Monolinguals2;match2;1;m4;21;4;MULTI_WORD;Tu nie ma nic;4;Tu nie ma nic;Polish;NA;NA;Polish;NA
+4948;Monolinguals2;match2;5;NA;18;4;MULTI_WORD;Mama, tata, ti, baba nie ma;3;Jest mama, jest tata, jestem ja, ale nie ma babci;Polish;NA;NA;Polish;NA
+4948;Monolinguals2;match2;2;NA;17;4;MULTI_WORD;Ti sam;2;Ja zrobię to sam;Polish;NA;NA;Polish;NA
+4948;Monolinguals2;match2;3;m3;16;4;MULTI_WORD;Tam fua nie;3;To jest w porządku (nie jest fuj);Polish;NA;NA;Polish;NA
+4948;Monolinguals2;match2;4;NA;16;4;MULTI_WORD;Mama nie;2;Nie mama (tylko ktoś inny);Polish;NA;NA;Polish;NA
+4948;Monolinguals2;match2;7;m4;18;4;MULTI_WORD;Tam nie ma baba mniam;4;To, co babcia bierze, nie jest do jedzenia;Polish;NA;NA;Polish;NA
+4948;Monolinguals2;match2;6;NA;17;4;MULTI_WORD;Baba brumbuła;2;Babcia pojechała ;Polish;NA;NA;Polish;NA
+4948;Monolinguals2;match2;1;m1;17;4;MULTI_WORD;Chce cyca;2;Chcę mleka;Polish;NA;NA;Polish;NA
+5035;Monolinguals2;match2;1;m3;24;4;MULTI_WORD;Tata miau nie ma;3;Tata szukał kotka i go nie ma;Polish;NA;NA;Polish;NA
+5035;Monolinguals2;match2;1;m1;24;4;MULTI_WORD;Tata miau nie ma;3;Tata szukał kotka i go nie ma;Polish;NA;NA;Polish;NA
