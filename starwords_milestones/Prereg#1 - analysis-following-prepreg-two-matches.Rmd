@@ -50,7 +50,7 @@ colorize <- function(x, color) {
 
 ### Bilingual milestones in early language development
 #### A part of the project: StarWords: a study of parental report on words
-##### Pre-registraiton #1
+##### Pre-registraiton #1, see https://osf.io/pzykv
 
 
 ### Participants
@@ -64,7 +64,7 @@ Below data from children who
 ```{r export table}
 # export APA table to Word
 
-kids <- read.csv2("kids_to_share.csv")
+kids <- read.csv2("kids.csv")
 str(kids)
 
 kids %>% filter(match == "match1") %>%
@@ -110,7 +110,8 @@ kids %>% filter(match == "match1") %>%
 We're checking whether the groups differ on matching variables: age on study entry, parental education, gender and length of parental reporting. The matching was done one to one - for each bilingual child we found a similiar monolingual child in the data set.  
 Note: Since we lacked parental edu information for many children (671 monolinguals and 179 bilinguals), I included a dummy level of parental education “0” (meaning: no data available); as a result, out of 302 pairs, 179 were matched on missing information (level “0”), and the remaining children were matched on the reported parental education level (six levels: PhD, higher education, unfinished higher education, vocational, secondary and primary education). This was the only way I could think of to match the children with some info, but at the same time not exclude children with no information from the match (and analyses).
 
-```{r supplementary tables, include = T, echo = F}
+### Table 1 and A1
+```{r, include = T, echo = F}
 
 # gender
 kids %>%
@@ -198,9 +199,9 @@ These analyses include the bilingual group (n = 302) and one monolingual group, 
 
 ```{r Words RQ1}
 # filter in the vars needed for further analyses
-words_to_share <- read.csv2("words_to_share.csv")
+words <- read.csv2("words.csv")
 
-words_rq1 <- words_to_share %>%
+words_rq1 <- words %>%
   filter(word_number == 1 | word_number == 10 | word_number == 50) %>%
   select(c(child_anonim, group, form, word_number, age_at_element))
 
@@ -211,11 +212,12 @@ words_rq1_wider <- words_rq1 %>%
 
 ```
 
+
 ```{r Multiwords RQ1}
-multiwords_to_share <- read.csv2("multiwords_to_share.csv")
+multiwords <- read.csv2("multiwords.csv")
 
 # long to wide
-multiwords_wider <- multiwords_to_share %>% ungroup() %>%
+multiwords_wider <- multiwords %>% ungroup() %>%
   dplyr::select(child_anonim, m_cat, age_at_element) %>%
     filter(m_cat == "m1" |
            m_cat == "m3" |
@@ -239,10 +241,9 @@ rq1 <- merge(rq1, words_rq1_wider[, c("child_anonim", "w1", "w10", "w50")], by =
 
 ```{r, include = T, echo=FALSE, warning=FALSE}
 # we add data on reported/recalled milestones
-milestones_to_share <- read.csv2("milestones_to_share.csv")
-milestones_to_share <- milestones_to_share %>% select(-X)
+milestones <- read.csv2("milestones.csv")
 
-rq1 <- merge(rq1, milestones_to_share[,c("child_anonim", "crawling_age", "walking_age", "babbling_age")], by = "child_anonim", all.x = T)
+rq1 <- merge(rq1, milestones[,c("child_anonim", "crawling_age", "walking_age", "babbling_age")], by = "child_anonim", all.x = T)
 rq1$group <- dplyr::recode_factor(rq1$group, "Bilinguals" = "Bilinguals", "Monolinguals1" = "Monolinguals")
 
 ```
@@ -263,7 +264,6 @@ lineplot_rq1 <- lineplot_rq1 %>%
          "walking" = "walking_age")
 
 ```
-
 
 
 ```{r}
@@ -293,9 +293,10 @@ lineplot_rq1_longer <- lineplot_rq1_longer %>% filter(is.na(is.outlier))
 
 ```
 
+
 #### Table 3 - descriptive stats
 
-```{r}
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 specify_decimal <- function(x, k) trimws(format(round(x, k), nsmall=k))
 
@@ -305,7 +306,9 @@ lineplot_rq1_longer %>%
   summarise(
   "n" = sum(!is.na(age_at_element)),
   "Age (M)" = specify_decimal(mean(age_at_element, na.rm = T),2),
-  "Age (SD)" = specify_decimal(sd(age_at_element, na.rm = T),2))
+  "Age (SD)" = specify_decimal(sd(age_at_element, na.rm = T),2)) %>%
+  kable("html") %>% kable_styling()
+
 ```
 
 #### Figure 1
@@ -624,8 +627,8 @@ Samples too small to run the analyses.
 These analyses include the whole bilingual group (n = 302), irregardless of their language input patterns (for a subset of children, see Appendix B).
 
 
-*Note 1.* For milestones regarding words and utterances milestones: we use the number of words reported by the parent in the app.  
-*Note 2.* If a word/utterance was marked as belonging to two languages (e.g. Polish and English), we count the word twice, for the Polish milestones and the English milestones. 
+*Note 1.* For milestones regarding words and utterances: we use the number of words reported by the parent in the app.  
+*Note 2.* If a word/utterance was marked as belonging to two languages (e.g. Polish and English), we count the word twice, for the Polish milestones and the English milestones.  
 *Note 3.* For each milestone, we consider only bilinguals who have this milestone (e.g. w1, w10) reported in both languages.
 
 ```{r bi}
@@ -636,7 +639,7 @@ bi <- kids %>%
 ```
 
 ```{r wordsrq2}
-words_longer <- words_to_share %>% 
+words_longer <- words %>% 
   arrange(child_anonim) %>%
   pivot_longer(cols = c("l1", "l2", "l3"),
                names_to = "language_nr",
@@ -646,8 +649,7 @@ words_longer <- words_to_share %>%
   filter(language_name != "NA") %>%
   mutate(
     language_new = dplyr::if_else(language_name == "Polish", "HL", "ML")) %>%
-  dplyr::relocate(language_new, .after = language_name) %>%
-  select(-X)
+  dplyr::relocate(language_new, .after = language_name)
 
 # remove old "word's number" (ordinal number) from rq1 - now if a word was reported in two languages, it will be counted twice,
 # once for HL vocab and once for ML vocab size
@@ -680,7 +682,7 @@ words_rq2 <- words_rq2 %>% select(c(child_anonim, milestone, age_at_element, lan
 # we duplicate a rowx times ; x = how many languages the multiword is reported in
 # e.g. Polish+English multiword --> shown in data twice (once as PL, once as ENG)
 
-multiwords_longer <- multiwords_to_share %>% 
+multiwords_longer <- multiwords %>% 
   arrange(child_anonim) %>%
   select(-c(m_cat)) %>%
   pivot_longer(cols = c("l1", "l2", "l3"),
@@ -694,8 +696,7 @@ multiwords_longer <- multiwords_to_share %>%
 multiwords_longer <- multiwords_longer %>%
   mutate(
     language_new = dplyr::if_else(language_name == "Polish", "HL", "ML")) %>%
-  dplyr::relocate(language_new, .after = language_name) %>%
-  select(-X) %>% unique()
+  dplyr::relocate(language_new, .after = language_name) %>% unique()
 
 multiwords_rq2 <- multiwords_longer %>% 
   arrange(elements_number) %>%
@@ -742,8 +743,6 @@ rq2_longer <- rbind(words_rq2, multiwords_rq2)
 rq2 <- rq2_longer %>%
   pivot_wider(names_from = c(milestone), values_from = age_at_element)
 
-R.Version()
-
 ```
 
 
@@ -751,12 +750,6 @@ R.Version()
 ```{r, include = T, echo=FALSE, warning=FALSE}
 # we take only the vars we want for RQ2
 lineplot_rq2 <- rq2
-
-# clean - step 1 - remove children with no data 
-lineplot_rq2 <- lineplot_rq2 %>%
-  filter(!is.na(language_new))
-# (down from 302 to 142 children!)
-length(unique(lineplot_rq2$child_anonim))
 
 # for each milestone, we want to include only children who have info from both languages
 # we will create seperate dfs for each milestone (filter out incomplete observations)
@@ -891,8 +884,7 @@ lineplot_rq2_l %>%
     "m3 Age (M) " = specify_decimal(mean(m3, na.rm = T),2),
     "m3 Age (SD) " = specify_decimal(sd(m3, na.rm = T),2),
     .groups = "keep") %>%
-  t() %>%
-  kable()
+  kable("html") %>% kable_styling()
 ```
 
 
@@ -906,7 +898,7 @@ lineplot_sum_rq2$language_new <- ordered(lineplot_sum_rq2$language_new , c("HL",
 
 
 lineplot_sum_rq2 <- as.data.frame(lineplot_sum_rq2)
-str(lineplot_sum_rq2)
+# str(lineplot_sum_rq2)
 
 fig2 <- ggplot(lineplot_sum_rq2, aes(x=milestone, y=age_at_element, group=language_new, color=language_new)) + 
   geom_line(aes(linetype=language_new)) +
@@ -935,6 +927,8 @@ ggsave("fig2.jpeg", dpi = 250, width = 1700, height = 1000, units = "px")
 
 
 ```
+
+
 #### RQ2: t-test
 ```{r all_bi_ttest, include = T, echo=FALSE, warning=FALSE}
 
@@ -945,7 +939,6 @@ leveneTest(age_at_element ~ language_new, data = rq2_w10)
 rq2_analysis <- rbind(rq2_w1, rq2_w10)
 rq2_analysis$milestone <- factor(rq2_analysis$milestone, ordered = T, levels = c("w1", "w10"))
 
-#TODO: sprawdzic t-test - istotny?
 # t-test
 rq2_analysis %>%
   dplyr::group_by(milestone) %>%
@@ -958,7 +951,7 @@ rq2_analysis %>%
 
 #### RQ2: Bayes Factors
 
-#### Word1 - bain
+#### Word1
 ```{r, include = T, echo= T, warning=FALSE}
 # w1
 prebf_df <- rq2_w1
@@ -1064,11 +1057,10 @@ table_A1
 
 # words for Appendix 1 (A1)
 
-words_A1 <- words_to_share %>%
+words_A1 <- words %>%
   filter(word_number == 1 | word_number == 10 | word_number == 50) %>%
   select(c(child_anonim, group, match, word_number, age_at_element))
 
-# zamieniamy na wide, tak żeby pasował do rq1 df
 words_A1_wider <- words_A1 %>%
   pivot_wider(id_cols = child_anonim, names_from = word_number, values_from = age_at_element) %>%
   rename("w1" = "1", "w10" = "10", "w50" = "50")
@@ -1078,7 +1070,7 @@ words_A1_wider <- words_A1 %>%
 ```{r Supp Multiwords}
 
 #  multiwords for Appendix 1 (A1)
-multiwords_A1 <- multiwords_to_share %>%
+multiwords_A1 <- multiwords %>%
   filter(!is.na(m_cat)) %>%
   pivot_wider(id_cols = c(child_anonim, group, match), names_from = m_cat, values_from = age_at_element,
               values_fill = NA) %>% unnest()
@@ -1088,7 +1080,7 @@ multiwords_A1 <- multiwords_to_share %>%
 
 ```{r}
 # add milestones
-milestones_A1 <- milestones_to_share
+milestones_A1 <- milestones
 
 # merge words, mulytiwords and milestones into one data frame
 all_A1 <- merge(milestones_A1, words_A1_wider, by = "child_anonim", all = T)
@@ -1195,7 +1187,7 @@ title <- ggdraw() +
     plot.margin = margin(0, 0, 0, 50))
 
 plot_grid(figAa, figAb, title, align = "h",  rel_widths = c(1,2), rel_heights = c(1, .1))
-ggsave("fig-A1.jpeg", dpi = 250, width = 2100, height = 1000, units = "px")
+ggsave("figA1.jpeg", dpi = 250, width = 2100, height = 1000, units = "px")
 
 ```
 
@@ -1210,49 +1202,78 @@ lineplot_A_longer %>%
   summarise(
   "n" = sum(!is.na(age_at_element)),
   "Age (M)" = specify_decimal(mean(age_at_element, na.rm = T),2),
-  "Age (SD)" = specify_decimal(sd(age_at_element, na.rm = T),2))
+  "Age (SD)" = specify_decimal(sd(age_at_element, na.rm = T),2)) %>%
+  kable("html") %>% kable_styling()
 
 ```
 
 
 #### Appendix A: one-way ANOVAs
-Significant only for 1st 4-word utterance, but small sample sizes.
-```{r Supp ANOVA, include = T, echo=FALSE, warning=FALSE}
+
+##### Crawling
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 aov_partial <- lineplot_A_longer %>%
   filter(milestone == "crawling_age")
 aov_1 <- aov(age_at_element ~ group, data = aov_partial)
 summary(aov_1)
+effectsize::eta_squared(aov_1, partial = FALSE)
+```
 
+##### Babbling
+```{r, include = T, echo=FALSE, warning=FALSE}
 aov_partial <- lineplot_A_longer %>%
   filter(milestone == "babbling_age")
-summary(aov(age_at_element ~ group, data = aov_partial))
+aov_1 <- aov(age_at_element ~ group, data = aov_partial)
+summary(aov_1)
+effectsize::eta_squared(aov_1, partial = FALSE)
+```
 
+##### Walking
+```{r, include = T, echo=FALSE, warning=FALSE}
 aov_partial <- lineplot_A_longer %>%
   filter(milestone == "walking_age")
-summary(aov(age_at_element ~ group, data = aov_partial))
+aov_1 <- aov(age_at_element ~ group, data = aov_partial)
+summary(aov_1)
+effectsize::eta_squared(aov_1, partial = FALSE)
+```
 
+##### Word1
+```{r, include = T, echo=FALSE, warning=FALSE}
 aov_partial <- lineplot_A_longer %>%
   filter(milestone == "w1")
-summary(aov(age_at_element ~ group, data = aov_partial))
+aov_1 <- aov(age_at_element ~ group, data = aov_partial)
+summary(aov_1)
+effectsize::eta_squared(aov_1, partial = FALSE)
+```
 
+##### Word10
+```{r, include = T, echo=FALSE, warning=FALSE}
 aov_partial <- lineplot_A_longer %>%
   filter(milestone == "w10")
 summary(aov(age_at_element ~ group, data = aov_partial))
+```
 
+##### Word50
+```{r, include = T, echo=FALSE, warning=FALSE}
 aov_partial <- lineplot_A_longer %>%
   filter(milestone == "w50")
 summary(aov(age_at_element ~ group, data = aov_partial))
+```
 
+##### Multiword1
+```{r, include = T, echo=FALSE, warning=FALSE}
 aov_partial <- lineplot_A_longer %>%
   filter(milestone == "m1")
 summary(aov(age_at_element ~ group, data = aov_partial))
+```
 
+##### Multiword3
+```{r, include = T, echo=FALSE, warning=FALSE}
 aov_partial <- lineplot_A_longer %>%
   filter(milestone == "m3")
 aov_m3 <- aov(age_at_element ~ group, data = aov_partial)
 summary(aov_m3)
-TukeyHSD(aov_m3)
 
 ```
 #### Appendix A: Bayes Factor
@@ -1448,11 +1469,12 @@ print(resbf_sa)
 ```
 
 
-### Appendix B. 
+### Appendix B
+
 
 
 ```{r, include = T, echo=FALSE, warning=FALSE}
-input <- read.csv2("input_kto.csv")
+input <- read.csv2("input.csv")
 
 input <- input %>%
   dplyr::select("child_anonim", "group", "group_raw", "home_input")
@@ -1487,6 +1509,9 @@ ggsave("figB1.jpeg", height = 1400, units = "px", dpi = 300)
 
 B_all <- merge(rq2, input[, c("child_anonim", "group_raw", "home_input")], by = "child_anonim", all.x = T)
 
+B_all <- B_all %>%
+  filter(!is.na(group_raw))
+
 B_all %>%
   group_by(group_raw) %>%
   dplyr::summarise(n = length(child_anonim)) # note: each child is two rows if they have data for both languages
@@ -1498,6 +1523,7 @@ B_w1 <- B_all %>%
   pivot_longer(cols = c(HL, ML), names_to = "language_new", values_to = "age_at_element") %>%
   mutate(milestone = "w1") %>% dplyr::relocate(milestone, .before = child_anonim)
 
+# w1 - how many kids?
 B_w1 %>%
   group_by(group_raw) %>%
   dplyr::summarise(n = length(child_anonim)) # note: each child is two rows - they have data for both languages
