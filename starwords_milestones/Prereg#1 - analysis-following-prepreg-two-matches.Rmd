@@ -624,12 +624,13 @@ Samples too small to run the analyses.
 
 
 ### RQ2: Bilinguals' L1 vs. L2
-These analyses include the whole bilingual group (n = 302), irregardless of their language input patterns (for a subset of children, see Appendix B).
+These analyses include the whole bilingual group (n = 302), including children with majority languages other than English (in the UK) and Norwegian (for a subset of children, see Appendix B).
 
 
 *Note 1.* For milestones regarding words and utterances: we use the number of words reported by the parent in the app.  
 *Note 2.* If a word/utterance was marked as belonging to two languages (e.g. Polish and English), we count the word twice, for the Polish milestones and the English milestones.  
 *Note 3.* For each milestone, we consider only bilinguals who have this milestone (e.g. w1, w10) reported in both languages.
+
 
 ```{r bi}
 bi <- kids %>%
@@ -745,7 +746,7 @@ rq2 <- rq2_longer %>%
 
 ```
 
-
+#### All bilinguals
 
 ```{r, include = T, echo=FALSE, warning=FALSE}
 # we take only the vars we want for RQ2
@@ -890,7 +891,7 @@ lineplot_rq2_l %>%
 
 #### Figure 2
 ```{r figure2, include = T, echo=FALSE, warning=FALSE}
-# Figure 2 - data from all bilinguals (irregardless of input properties)
+# Figure 2 - data from all bilinguals (with various majority languages)
 
 lineplot_sum_rq2$milestone
 lineplot_sum_rq2$milestone <- ordered(lineplot_sum_rq2$milestone , c("w1", "w10", "w50", "m1", "m3", "m4"))
@@ -1033,10 +1034,43 @@ print(resbf_sa)
 
 
 ### Appendix A
+```{r, include = T, echo=FALSE, warning=FALSE}
+input <- read.csv2("input.csv")
+
+input <- input %>%
+  dplyr::select("child_anonim", "group", "group_raw", "home_input")
+
+input$home_input <- factor(input$home_input, levels = c("noInfo", "mixed", "polish"))
+input$group_raw <- factor(input$group_raw, levels = c("BI-UK", "BI-NO", "BI-X"))
+
+input_sum <- input %>%
+  group_by(group_raw, home_input) %>%
+  dplyr::summarise(n = length(child_anonim))
+
+input_sum <- input_sum %>% dplyr::group_by(group_raw) %>% mutate(percentage=100*n/sum(n))
+input_sum$percentage <- round(input_sum$percentage, digits = 0)
+
+input_sum$home_input <- dplyr::recode_factor(input_sum$home_input, noInfo = "No Information", mixed = "Mixed", polish = "Polish only")
+
+input_sum %>%
+  ggplot(aes(y = percentage, x = group_raw, fill = home_input)) +
+  geom_bar(stat="identity") + 
+  geom_text(aes(x = group_raw, y = percentage, label = paste0(percentage,"%")), size=4,
+            position = position_stack(vjust = 0.5)) +
+  scale_x_discrete(labels = c("Polish-English \n bilinguals", "Polish-Norwegian \n bilinguals", "Polish-Other \n bilinguals")) +
+  xlab("") + ylab("Percentage") +
+  scale_fill_manual(values = c("#EBEDF3", "#c6ccdd", "#6699CC")) +
+                      theme(legend.title = element_blank(), panel.background = element_rect(fill = "white", colour = "grey50"))
+
+ggsave("figA1.jpeg", height = 1400, units = "px", dpi = 300)
+
+```
+
+### Appendix B
 Here we're following the analyses for RQ1 (bilinguals vs. monolinguals) but for three groups: one group of bilingual children and TWO DISTINCT matched groups of monolingual children.
 
 ```{r Supp Table A1}
-table_A1 <- kids %>%
+table_B1 <- kids %>%
   group_by(group) %>%
   summarise(n = dplyr::n(),
             "Entry age (M)" = mean(age_at_study_entry),
@@ -1047,21 +1081,21 @@ table_A1 <- kids %>%
             "Days reporting (max)" = max(days_reporting, na.rm = T),
             .groups = "keep")
 
-table_A1 <- nice_table(table_A1)
-table_A1
+table_B1 <- nice_table(table_B1)
+table_B1
 
 ```
 
 
 ```{r Supp Words}
 
-# words for Appendix 1 (A1)
+# words for Appendix B (B1)
 
-words_A1 <- words %>%
+words_B1 <- words %>%
   filter(word_number == 1 | word_number == 10 | word_number == 50) %>%
   select(c(child_anonim, group, match, word_number, age_at_element))
 
-words_A1_wider <- words_A1 %>%
+words_B1_wider <- words_B1 %>%
   pivot_wider(id_cols = child_anonim, names_from = word_number, values_from = age_at_element) %>%
   rename("w1" = "1", "w10" = "10", "w50" = "50")
 
@@ -1069,8 +1103,8 @@ words_A1_wider <- words_A1 %>%
 
 ```{r Supp Multiwords}
 
-#  multiwords for Appendix 1 (A1)
-multiwords_A1 <- multiwords %>%
+#  multiwords for Appendix B (B1)
+multiwords_B1 <- multiwords %>%
   filter(!is.na(m_cat)) %>%
   pivot_wider(id_cols = c(child_anonim, group, match), names_from = m_cat, values_from = age_at_element,
               values_fill = NA) %>% unnest()
@@ -1080,11 +1114,11 @@ multiwords_A1 <- multiwords %>%
 
 ```{r}
 # add milestones
-milestones_A1 <- milestones
+milestones_B1 <- milestones
 
 # merge words, mulytiwords and milestones into one data frame
-all_A1 <- merge(milestones_A1, words_A1_wider, by = "child_anonim", all = T)
-all_A1 <- merge(all_A1, multiwords_A1[,c("child_anonim", "m1", "m3", "m4")], by = "child_anonim", all = T)
+all_B1 <- merge(milestones_B1, words_B1_wider, by = "child_anonim", all = T)
+all_B1 <- merge(all_B1, multiwords_B1[,c("child_anonim", "m1", "m3", "m4")], by = "child_anonim", all = T)
 
 ```
 
@@ -1092,41 +1126,41 @@ all_A1 <- merge(all_A1, multiwords_A1[,c("child_anonim", "m1", "m3", "m4")], by 
 ```{r}
 
 # wide to long
-lineplot_A_longer <- all_A1 %>%
+lineplot_B_longer <- all_B1 %>%
   pivot_longer(cols = 4:12, names_to = "milestone", values_to = "age_at_element")
 
-lineplot_A_longer <- lineplot_A_longer %>% unique()
+lineplot_B_longer <- lineplot_B_longer %>% unique()
 
-lineplot_A_longer$milestone <- factor(lineplot_A_longer$milestone, ordered = T, levels = c("crawling_age", "babbling_age", "walking_age","w1", "w10", "w50", "m1", "m3", "m4"))
+lineplot_B_longer$milestone <- factor(lineplot_B_longer$milestone, ordered = T, levels = c("crawling_age", "babbling_age", "walking_age","w1", "w10", "w50", "m1", "m3", "m4"))
 
 ```
 
 
-```{r App.A outliers}
+```{r App.B outliers}
 # view the data for potential outliers
-lineplot_A_longer %>% ggplot(aes(x = milestone, y = age_at_element, fill = group)) + geom_boxplot() + geom_jitter() +
+lineplot_B_longer %>% ggplot(aes(x = milestone, y = age_at_element, fill = group)) + geom_boxplot() + geom_jitter() +
   theme(legend.position = "bottom")
 
 # identify outliers (rstatix::identify...)
-A_outliers <- lineplot_A_longer %>%
+B_outliers <- lineplot_B_longer %>%
   dplyr::group_by(group, milestone) %>% 
   identify_outliers("age_at_element")
 
 # mark outliers in the dataset and filter out
-lineplot_A_longer <- merge(lineplot_A_longer, A_outliers[, c("child_anonim", "milestone", "is.outlier")], all.x = T)
+lineplot_B_longer <- merge(lineplot_B_longer, B_outliers[, c("child_anonim", "milestone", "is.outlier")], all.x = T)
 
-lineplot_A_longer <- lineplot_A_longer %>% filter(is.na(is.outlier))
+lineplot_B_longer <- lineplot_B_longer %>% filter(is.na(is.outlier))
 
 ```
 
 
-#### Figure A1
+#### Figure B1
 ```{r Figure A1, include = T, echo=FALSE, warning=FALSE}
 
-lineplot_A_sum <- summarySE(lineplot_A_longer, measurevar = "age_at_element", groupvars = c("milestone", "group"), na.rm = T)
-lineplot_A_sum$milestone <- as.factor(lineplot_A_sum$milestone)
+lineplot_B_sum <- summarySE(lineplot_B_longer, measurevar = "age_at_element", groupvars = c("milestone", "group"), na.rm = T)
+lineplot_B_sum$milestone <- as.factor(lineplot_B_sum$milestone)
 
-lineplot_A_sum <- lineplot_A_sum %>%
+lineplot_B_sum <- lineplot_B_sum %>%
   mutate(source = dplyr::case_when(
     milestone == "babbling_age" ~ "parental recall",
     milestone == "crawling_age" ~ "parental recall",
@@ -1135,7 +1169,7 @@ lineplot_A_sum <- lineplot_A_sum %>%
   ))
 
 
-figAa <- lineplot_A_sum %>%
+figBa <- lineplot_B_sum %>%
   filter(source == "parental recall") %>%
   ggplot(aes(x=milestone, y=age_at_element, group=group, color=group)) + 
   geom_line(aes(linetype=group)) +
@@ -1156,7 +1190,7 @@ figAa <- lineplot_A_sum %>%
         panel.grid.major = element_line(linetype = "solid", colour = "grey90"))
 
 
-figAb <- lineplot_A_sum %>%
+figBb <- lineplot_B_sum %>%
   filter(source == "parental report") %>%
   ggplot(aes(x=milestone, y=age_at_element, group=group, color=group)) + 
   geom_line(aes(linetype=group)) +
@@ -1186,17 +1220,17 @@ title <- ggdraw() +
     # so title is aligned with left edge of first plot
     plot.margin = margin(0, 0, 0, 50))
 
-plot_grid(figAa, figAb, title, align = "h",  rel_widths = c(1,2), rel_heights = c(1, .1))
-ggsave("figA1.jpeg", dpi = 250, width = 2100, height = 1000, units = "px")
+plot_grid(figBa, figBb, title, align = "h",  rel_widths = c(1,2), rel_heights = c(1, .1))
+ggsave("figB1.jpeg", dpi = 250, width = 2100, height = 1000, units = "px")
 
 ```
 
-#### Table A3
+#### Table B3
 ```{r Table A3, include = T, echo = F, warning = F}
 
 specify_decimal <- function(x, k) trimws(format(round(x, k), nsmall=k))
 
-lineplot_A_longer %>%
+lineplot_B_longer %>%
   filter(!is.na(group)) %>%
   group_by(milestone, group) %>%
   summarise(
@@ -1208,12 +1242,12 @@ lineplot_A_longer %>%
 ```
 
 
-#### Appendix A: one-way ANOVAs
+#### Appendix B: one-way ANOVAs
 
 ##### Crawling
 ```{r, include = T, echo=FALSE, warning=FALSE}
 
-aov_partial <- lineplot_A_longer %>%
+aov_partial <- lineplot_B_longer %>%
   filter(milestone == "crawling_age")
 aov_1 <- aov(age_at_element ~ group, data = aov_partial)
 summary(aov_1)
@@ -1222,7 +1256,7 @@ effectsize::eta_squared(aov_1, partial = FALSE)
 
 ##### Babbling
 ```{r, include = T, echo=FALSE, warning=FALSE}
-aov_partial <- lineplot_A_longer %>%
+aov_partial <- lineplot_B_longer %>%
   filter(milestone == "babbling_age")
 aov_1 <- aov(age_at_element ~ group, data = aov_partial)
 summary(aov_1)
@@ -1231,7 +1265,7 @@ effectsize::eta_squared(aov_1, partial = FALSE)
 
 ##### Walking
 ```{r, include = T, echo=FALSE, warning=FALSE}
-aov_partial <- lineplot_A_longer %>%
+aov_partial <- lineplot_B_longer %>%
   filter(milestone == "walking_age")
 aov_1 <- aov(age_at_element ~ group, data = aov_partial)
 summary(aov_1)
@@ -1240,7 +1274,7 @@ effectsize::eta_squared(aov_1, partial = FALSE)
 
 ##### Word1
 ```{r, include = T, echo=FALSE, warning=FALSE}
-aov_partial <- lineplot_A_longer %>%
+aov_partial <- lineplot_B_longer %>%
   filter(milestone == "w1")
 aov_1 <- aov(age_at_element ~ group, data = aov_partial)
 summary(aov_1)
@@ -1249,37 +1283,37 @@ effectsize::eta_squared(aov_1, partial = FALSE)
 
 ##### Word10
 ```{r, include = T, echo=FALSE, warning=FALSE}
-aov_partial <- lineplot_A_longer %>%
+aov_partial <- lineplot_B_longer %>%
   filter(milestone == "w10")
 summary(aov(age_at_element ~ group, data = aov_partial))
 ```
 
 ##### Word50
 ```{r, include = T, echo=FALSE, warning=FALSE}
-aov_partial <- lineplot_A_longer %>%
+aov_partial <- lineplot_B_longer %>%
   filter(milestone == "w50")
 summary(aov(age_at_element ~ group, data = aov_partial))
 ```
 
 ##### Multiword1
 ```{r, include = T, echo=FALSE, warning=FALSE}
-aov_partial <- lineplot_A_longer %>%
+aov_partial <- lineplot_B_longer %>%
   filter(milestone == "m1")
 summary(aov(age_at_element ~ group, data = aov_partial))
 ```
 
 ##### Multiword3
 ```{r, include = T, echo=FALSE, warning=FALSE}
-aov_partial <- lineplot_A_longer %>%
+aov_partial <- lineplot_B_longer %>%
   filter(milestone == "m3")
 aov_m3 <- aov(age_at_element ~ group, data = aov_partial)
 summary(aov_m3)
 
 ```
-#### Appendix A: Bayes Factor
+#### Appendix B: Bayes Factor
 
 ```{r, include = T, echo= T, warning=FALSE}
-lineplot_A <- lineplot_A_longer %>%
+lineplot_B <- lineplot_B_longer %>%
   pivot_wider(id_cols = c(child_anonim, group), names_from = milestone, values_from = age_at_element)
 
 # Following Hoijtink, H., Mulder, J., Van Lissa, C., & Gu, X. (2019). A tutorial on testing hypotheses using the Bayes factor. Psychological Methods, 24(5), 539–556. https://doi.org/10.1037/met0000201
@@ -1288,7 +1322,7 @@ lineplot_A <- lineplot_A_longer %>%
 ```{r, include = T, echo= T, warning=FALSE}
 
 # crawling
-prepbf <-  lm(crawling_age~group-1, data=lineplot_A) #Without the -1 regular dummy coding would have been applied
+prepbf <-  lm(crawling_age~group-1, data=lineplot_B) #Without the -1 regular dummy coding would have been applied
 coef(prepbf)
 set.seed(100)
 resbf<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2")
@@ -1310,7 +1344,7 @@ resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2
 print(resbf_sa)
 
 # babbling
-prepbf <-  lm(babbling_age~group-1, data=lineplot_A)
+prepbf <-  lm(babbling_age~group-1, data=lineplot_B)
 coef(prepbf)
 set.seed(100)
 resbf<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2")
@@ -1332,7 +1366,7 @@ resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2
 print(resbf_sa)
 
 # walking
-prepbf <-  lm(walking_age~group-1, data=lineplot_A)
+prepbf <-  lm(walking_age~group-1, data=lineplot_B)
 coef(prepbf)
 set.seed(100)
 resbf<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2")
@@ -1354,7 +1388,7 @@ resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2
 print(resbf_sa)
 
 # word1
-prepbf <-  lm(w1~group-1, data=lineplot_A)
+prepbf <-  lm(w1~group-1, data=lineplot_B)
 coef(prepbf)
 set.seed(100)
 resbf<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2")
@@ -1376,7 +1410,7 @@ resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2
 print(resbf_sa)
 
 # word10
-prepbf <-  lm(w10~group-1, data=lineplot_A)
+prepbf <-  lm(w10~group-1, data=lineplot_B)
 coef(prepbf)
 set.seed(100)
 resbf<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2")
@@ -1398,7 +1432,7 @@ resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2
 print(resbf_sa)
 
 # word50
-prepbf <-  lm(w50~group-1, data=lineplot_A)
+prepbf <-  lm(w50~group-1, data=lineplot_B)
 coef(prepbf)
 set.seed(100)
 resbf<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2")
@@ -1420,7 +1454,7 @@ resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2
 print(resbf_sa)
 
 # multiword1
-prepbf <-  lm(m1~group-1, data=lineplot_A)
+prepbf <-  lm(m1~group-1, data=lineplot_B)
 coef(prepbf)
 set.seed(100)
 resbf<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2")
@@ -1442,7 +1476,7 @@ resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2
 print(resbf_sa)
 
 # multiword3
-prepbf <-  lm(m3~group-1, data=lineplot_A)
+prepbf <-  lm(m3~group-1, data=lineplot_B)
 coef(prepbf)
 set.seed(100)
 resbf<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2")
@@ -1469,63 +1503,31 @@ print(resbf_sa)
 ```
 
 
-### Appendix B
+### Appendix C
 
-
-
-```{r, include = T, echo=FALSE, warning=FALSE}
-input <- read.csv2("input.csv")
-
-input <- input %>%
-  dplyr::select("child_anonim", "group", "group_raw", "home_input")
-
-input$home_input <- factor(input$home_input, levels = c("noInfo", "mixed", "polish"))
-input$group_raw <- factor(input$group_raw, levels = c("BI-UK", "BI-NO", "BI-X"))
-
-input_sum <- input %>%
-  group_by(group_raw, home_input) %>%
-  dplyr::summarise(n = length(child_anonim))
-
-input_sum <- input_sum %>% dplyr::group_by(group_raw) %>% mutate(percentage=100*n/sum(n))
-input_sum$percentage <- round(input_sum$percentage, digits = 0)
-
-input_sum$home_input <- dplyr::recode_factor(input_sum$home_input, noInfo = "No Information", mixed = "Mixed", polish = "Polish only")
-
-input_sum %>%
-  ggplot(aes(y = percentage, x = group_raw, fill = home_input)) +
-  geom_bar(stat="identity") + 
-  geom_text(aes(x = group_raw, y = percentage, label = paste0(percentage,"%")), size=4,
-            position = position_stack(vjust = 0.5)) +
-  scale_x_discrete(labels = c("Polish-English \n bilinguals", "Polish-Norwegian \n bilinguals", "Polish-Other \n bilinguals")) +
-  xlab("") + ylab("Percentage") +
-  scale_fill_manual(values = c("#EBEDF3", "#c6ccdd", "#6699CC")) +
-                      theme(legend.title = element_blank(), panel.background = element_rect(fill = "white", colour = "grey50"))
-
-ggsave("figB1.jpeg", height = 1400, units = "px", dpi = 300)
-
-```
+Bilinguals from the UK and Norway
 
 ```{r children from pre-registered rq2}
 
-B_all <- merge(rq2, input[, c("child_anonim", "group_raw", "home_input")], by = "child_anonim", all.x = T)
+reg_bi <- merge(rq2, kids[, c("child_anonim", "country")], by = "child_anonim", all.x = T)
 
-B_all <- B_all %>%
-  filter(!is.na(group_raw))
+reg_bi <- reg_bi %>%
+  filter(!is.na(country))
 
-B_all %>%
-  group_by(group_raw) %>%
+reg_bi %>%
+  group_by(country) %>%
   dplyr::summarise(n = length(child_anonim)) # note: each child is two rows if they have data for both languages
 
-B_w1 <- B_all %>%
-  dplyr::select("child_anonim", "language_new", "w1", "group_raw", "home_input") %>%
+reg_w1 <- reg_bi %>%
+  dplyr::select("child_anonim", "language_new", "w1", "country") %>%
   pivot_wider(names_from = language_new, values_from = w1) %>%
   filter(complete.cases(HL, ML)) %>%
   pivot_longer(cols = c(HL, ML), names_to = "language_new", values_to = "age_at_element") %>%
   mutate(milestone = "w1") %>% dplyr::relocate(milestone, .before = child_anonim)
 
 # w1 - how many kids?
-B_w1 %>%
-  group_by(group_raw) %>%
+reg_w1 %>%
+  group_by(country) %>%
   dplyr::summarise(n = length(child_anonim)) # note: each child is two rows - they have data for both languages
 
 
@@ -1534,39 +1536,39 @@ B_w1 %>%
 
 ```{r, include = T, echo=FALSE, warning=FALSE}
 # we take only the vars we want for RQ2
-lineplot_B <- B_all %>% filter(group_raw == "BI-UK" | group_raw == "BI-NO")
+lineplot_C <- reg_bi %>% filter(country == "UK" | country == "NORWAY")
 
 # for each milestone, we want to include only children who have info from both languages
 # we will create seperate dfs for each milestone (filter out incomplete observations)
 # and then rbind these separate dfs into one, to draw a plot upon it.
 
 # w1
-B_w1 <- lineplot_B %>%
-  dplyr::select("child_anonim", "language_new", "w1", "group_raw", "home_input") %>%
+reg_w1 <- lineplot_C %>%
+  dplyr::select("child_anonim", "language_new", "w1", "country") %>%
   pivot_wider(names_from = language_new, values_from = w1) %>%
   filter(complete.cases(HL, ML)) %>%
   pivot_longer(cols = c(HL, ML), names_to = "language_new", values_to = "age_at_element") %>%
   mutate(milestone = "w1") %>% dplyr::relocate(milestone, .before = child_anonim)
 
-B_w1_se <- B_w1 %>%
-  summarySE(measurevar = "age_at_element", groupvars = c("language_new", "group_raw"), na.rm = T) %>%
+reg_w1_se <- reg_w1 %>%
+  summarySE(measurevar = "age_at_element", groupvars = c("language_new", "country"), na.rm = T) %>%
   mutate(milestone = "w1") %>% dplyr::relocate(milestone, .before = language_new)
 
 #w10
-B_w10 <- lineplot_B %>%
-  dplyr::select("child_anonim", "language_new", "w10", "group_raw", "home_input") %>%
+reg_w10 <- lineplot_C %>%
+  dplyr::select("child_anonim", "language_new", "w10", "country") %>%
   pivot_wider(names_from = language_new, values_from = w10) %>%
   filter(complete.cases(HL, ML)) %>%
   pivot_longer(cols = c(HL, ML), names_to = "language_new", values_to = "age_at_element") %>%
   mutate(milestone = "w10") %>% dplyr::relocate(milestone, .before = child_anonim)
-B_w10_se <- B_w10 %>%
-  summarySE(measurevar = "age_at_element", groupvars = c("language_new", "group_raw"), na.rm = T) %>%
+reg_w10_se <- reg_w10 %>%
+  summarySE(measurevar = "age_at_element", groupvars = c("language_new", "country"), na.rm = T) %>%
   mutate(milestone = "w10") %>% dplyr::relocate(milestone, .before = language_new)
 
 #w50
 #none
-B_w50 <- lineplot_B %>%
-  dplyr::select("child_anonim", "language_new", "w50", "group_raw", "home_input") %>%
+reg_w50 <- lineplot_C %>%
+  dplyr::select("child_anonim", "language_new", "w50", "country") %>%
   pivot_wider(names_from = language_new, values_from = w50) %>%
   filter(complete.cases(HL, ML)) %>%
   pivot_longer(cols = c(HL, ML), names_to = "language_new", values_to = "age_at_element") %>%
@@ -1574,19 +1576,19 @@ B_w50 <- lineplot_B %>%
 # no data for summarySE
 
 #m1
-B_m1 <- lineplot_B %>%
-  dplyr::select("child_anonim", "language_new", "m1", "group_raw", "home_input") %>%
+reg_m1 <- lineplot_C %>%
+  dplyr::select("child_anonim", "language_new", "m1", "country") %>%
   pivot_wider(names_from = language_new, values_from = m1) %>%
   filter(complete.cases(HL, ML)) %>%
   pivot_longer(cols = c(HL, ML), names_to = "language_new", values_to = "age_at_element") %>%
   mutate(milestone = "m1") %>% dplyr::relocate(milestone, .before = child_anonim)
-B_m1_se <- B_m1 %>%
-  summarySE(measurevar = "age_at_element", groupvars = c("language_new", "group_raw"), na.rm = T) %>%
+reg_m1_se <- reg_m1 %>%
+  summarySE(measurevar = "age_at_element", groupvars = c("language_new", "country"), na.rm = T) %>%
   mutate(milestone = "m1") %>% dplyr::relocate(milestone, .before = language_new)
 
 #m3
-B_m3 <- lineplot_B %>%
-  dplyr::select("child_anonim", "language_new", "m3", "group_raw", "home_input") %>%
+reg_m3 <- lineplot_C %>%
+  dplyr::select("child_anonim", "language_new", "m3", "country") %>%
   pivot_wider(names_from = language_new, values_from = m3) %>%
   filter(complete.cases(HL, ML)) %>%
   pivot_longer(cols = c(HL, ML), names_to = "language_new", values_to = "age_at_element") %>%
@@ -1594,7 +1596,7 @@ B_m3 <- lineplot_B %>%
 # no data for summarySE
 
 #m4
-B_m4 <- lineplot_B %>%
+reg_m4 <- lineplot_C %>%
   dplyr::select("child_anonim", "language_new", "m4") %>%
   pivot_wider(names_from = language_new, values_from = m4) %>%
   filter(complete.cases(HL, ML)) %>%
@@ -1603,8 +1605,108 @@ B_m4 <- lineplot_B %>%
 # no data for summarySE
 
 # summary
-lineplot_B_sum <- rbind(B_w1_se, B_w10_se, B_m1_se)
+lineplot_reg_sum <- rbind(reg_w1_se, reg_w10_se, reg_m1_se)
+lineplot_C <- rbind(reg_w1, reg_w10, reg_m1)
+lineplot_C <- lineplot_C %>% pivot_wider(id_cols = c(child_anonim, country, language_new), names_from = milestone, values_from = age_at_element)
 
 
 ```
 
+
+#### Polish-English bilinguals in the UK
+
+```{r, include = T, echo = F, warning = F}
+
+str(lineplot_C)
+lineplot_C$country <- as.factor(lineplot_C$country)
+lineplot_C$language_new <- as.factor(lineplot_C$language_new)
+
+lineplot_C$w1 <- as.numeric(unlist(lineplot_C$w1))
+lineplot_C$w10 <- as.numeric(unlist(lineplot_C$w10))
+lineplot_C$m1 <- as.numeric(unlist(lineplot_C$m1))
+
+lineplot_C %>%
+  dplyr::group_by(country, language_new) %>%
+  dplyr::summarise(
+    "w1 n" = sum(!is.na(w1)),
+    "w1 Age (M) " = specify_decimal(mean(w1, na.rm = T),2),
+    "w1 Age (SD) " = specify_decimal(sd(w1, na.rm = T),2),
+    "w10 n" = sum(!is.na(w10)),
+    "w10 Age (M) " = specify_decimal(mean(w10, na.rm = T),2),
+    "w10 Age (SD) " = specify_decimal(sd(w10, na.rm = T),2),
+    "m1 n" = sum(!is.na(m1)),
+    "m1 Age (M) " = specify_decimal(mean(m1, na.rm = T),2),
+    "m1 Age (SD) " = specify_decimal(sd(m1, na.rm = T),2),
+    .groups = "keep") %>%
+  kable("html") %>% kable_styling()
+```
+
+
+##### Word1
+```{r, include = T, echo= T, warning=FALSE}
+reg_w1 %>%
+  filter(country == "UK") %>%
+  rstatix::t_test(age_at_element ~ language_new, paired = T, var.equal = T, conf.level = 0.95, detailed = T) %>%
+  kable("html") %>% kable_styling()
+```
+
+
+```{r, include = T, echo= T, warning=FALSE}
+# w1
+prebf_df <- reg_w1 %>% filter(country == "UK")
+prepbf <-  lm(age_at_element~language_new-1, data=prebf_df)
+coef(prepbf)
+set.seed(100)
+resbf<-bain(prepbf,"language_newHL = language_newML")
+print(resbf)
+
+# Sensitivity Analysis
+# compute BF01 using b-g (same BF as printed above)
+resbf_sa<-bain(prepbf,"language_newHL = language_newML", fraction = 1)
+print(resbf_sa)
+# compute BF01 replacing b-g by 2 x b-g
+# setting fraction to 2 implies using 2 x b-g
+set.seed(100)
+resbf_sa<-bain(prepbf,"language_newHL = language_newML", fraction = 2)
+print(resbf_sa)
+# compute BF01 replacing b-g by 3 x b-g
+set.seed(100)
+resbf_sa<-bain(prepbf,"language_newHL = language_newML", fraction = 3)
+print(resbf_sa)
+```
+
+
+#### Polish-Norwegian bilinguals in Norway
+
+##### Word1
+```{r, include = T, echo= T, warning=FALSE}
+reg_w1 %>%
+  filter(country == "NORWAY") %>%
+  rstatix::t_test(age_at_element ~ language_new, paired = T, var.equal = T, conf.level = 0.95, detailed = T) %>%
+  kable("html") %>% kable_styling()
+```
+
+
+```{r, include = T, echo= T, warning=FALSE}
+# w1
+prebf_df <- reg_w1 %>% filter(country == "NORWAY")
+prepbf <-  lm(age_at_element~language_new-1, data=prebf_df)
+coef(prepbf)
+set.seed(100)
+resbf<-bain(prepbf,"language_newHL = language_newML")
+print(resbf)
+
+# Sensitivity Analysis
+# compute BF01 using b-g (same BF as printed above)
+resbf_sa<-bain(prepbf,"language_newHL = language_newML", fraction = 1)
+print(resbf_sa)
+# compute BF01 replacing b-g by 2 x b-g
+# setting fraction to 2 implies using 2 x b-g
+set.seed(100)
+resbf_sa<-bain(prepbf,"language_newHL = language_newML", fraction = 2)
+print(resbf_sa)
+# compute BF01 replacing b-g by 3 x b-g
+set.seed(100)
+resbf_sa<-bain(prepbf,"language_newHL = language_newML", fraction = 3)
+print(resbf_sa)
+```
