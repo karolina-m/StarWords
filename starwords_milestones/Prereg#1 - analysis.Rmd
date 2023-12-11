@@ -201,6 +201,13 @@ These analyses include the bilingual group (n = 302) and one monolingual group, 
 # filter in the vars needed for further analyses
 words <- read.csv2("words.csv")
 
+words <- words %>% 
+  arrange(word_number_old) %>%
+  group_by(child_anonim) %>%
+  mutate(word_number = dplyr::row_number()) %>%
+  dplyr::relocate(word_number, .after = word_number_old) %>% select(-word_number_old)
+
+
 words_rq1 <- words %>%
   filter(word_number == 1 | word_number == 10 | word_number == 50) %>%
   select(c(child_anonim, group, form, word_number, age_at_element))
@@ -354,10 +361,10 @@ fig1b <- lineplot_rq1_sum %>%
                 width=0.5, 
                 position=position_dodge(0.03)) +
   scale_y_continuous(limits = c(4,28), breaks = c(4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28)) +
-  scale_x_discrete(labels = c("1st word \n B n = 141 \n M n = 138",
-                              "10 words  \n B n = 50 \n M n = 48",
-                              "50 words  \n B n = 16 \n M n = 14",
-                              "1st multiword \n B n = 34 \n M n = 42",
+  scale_x_discrete(labels = c("1st word \n B n = 140 \n M n = 137",
+                              "10 words  \n B n = 50 \n M n = 47",
+                              "50 words  \n B n = 15 \n M n = 14",
+                              "1st multiword \n B n = 34 \n M n = 41",
                               "3-word utt. \n B n = 14 \n M n = 18",
                               "4-word utt. \n B n = 3 \n M n = 6")) +
   scale_color_brewer(type = "qual", palette = 6) +
@@ -691,8 +698,7 @@ multiwords_longer <- multiwords %>%
                values_to = "language_name") %>%
   filter(!is.na(language_name)) %>%
   relocate(language_name, .after = meaning) %>%
-  relocate(language_nr, .after = meaning) %>%
-  dplyr::select(-language)
+  relocate(language_nr, .after = meaning)
 
 multiwords_longer <- multiwords_longer %>%
   mutate(
@@ -845,8 +851,6 @@ rq2_w1 %>%
   dplyr::group_by(language_new) %>% 
   identify_outliers("age_at_element")
 
-rq2_w1 <- rq2_w1 %>% filter(child_anonim != 4730)
-rq2_w1 %>% ggplot(aes(x = language_new, y = age_at_element)) + geom_boxplot() + geom_jitter()
 
 ```
 
@@ -899,7 +903,6 @@ lineplot_sum_rq2$language_new <- ordered(lineplot_sum_rq2$language_new , c("HL",
 
 
 lineplot_sum_rq2 <- as.data.frame(lineplot_sum_rq2)
-# str(lineplot_sum_rq2)
 
 fig2 <- ggplot(lineplot_sum_rq2, aes(x=milestone, y=age_at_element, group=language_new, color=language_new)) + 
   geom_line(aes(linetype=language_new)) +
@@ -908,7 +911,7 @@ fig2 <- ggplot(lineplot_sum_rq2, aes(x=milestone, y=age_at_element, group=langua
                 width=0.5, 
                 position=position_dodge(0.03)) +
   scale_y_continuous(limits = c(4,28), breaks = c(4,6,8,10, 12, 14, 16, 18, 20, 22, 24, 26, 28)) +
-  scale_x_discrete(labels = c("1st word \n n = 85",
+  scale_x_discrete(labels = c("1st word \n n = 86",
                               "10 words \n n = 15",
                               "50 words \n n = 0",
                               "1st multiword \n n = 7",
@@ -1037,25 +1040,33 @@ print(resbf_sa)
 ```{r, include = T, echo=FALSE, warning=FALSE}
 input <- read.csv2("input.csv")
 
+input <- merge(input, kids[,c("child_anonim", "country")], all.x = T)
+
 input <- input %>%
-  dplyr::select("child_anonim", "group", "group_raw", "home_input")
+  dplyr::select("child_anonim", "group", "country", "home_input")
+
+input <- input %>% mutate(country_collapsed = case_when(
+  country == "UK" ~ "UK",
+  country == "NORWAY" ~ "NORWAY",
+  TRUE ~ "OTHER"
+))
 
 input$home_input <- factor(input$home_input, levels = c("noInfo", "mixed", "polish"))
-input$group_raw <- factor(input$group_raw, levels = c("BI-UK", "BI-NO", "BI-X"))
+input$country_collapsed <- factor(input$country_collapsed, levels = c("UK", "NORWAY", "OTHER"))
 
 input_sum <- input %>%
-  group_by(group_raw, home_input) %>%
+  group_by(country_collapsed, home_input) %>%
   dplyr::summarise(n = length(child_anonim))
 
-input_sum <- input_sum %>% dplyr::group_by(group_raw) %>% mutate(percentage=100*n/sum(n))
+input_sum <- input_sum %>% dplyr::group_by(country_collapsed) %>% mutate(percentage=100*n/sum(n))
 input_sum$percentage <- round(input_sum$percentage, digits = 0)
 
 input_sum$home_input <- dplyr::recode_factor(input_sum$home_input, noInfo = "No Information", mixed = "Mixed", polish = "Polish only")
 
 input_sum %>%
-  ggplot(aes(y = percentage, x = group_raw, fill = home_input)) +
+  ggplot(aes(y = percentage, x = country_collapsed, fill = home_input)) +
   geom_bar(stat="identity") + 
-  geom_text(aes(x = group_raw, y = percentage, label = paste0(percentage,"%")), size=4,
+  geom_text(aes(x = country_collapsed, y = percentage, label = paste0(percentage,"%")), size=4,
             position = position_stack(vjust = 0.5)) +
   scale_x_discrete(labels = c("Polish-English \n bilinguals", "Polish-Norwegian \n bilinguals", "Polish-Other \n bilinguals")) +
   xlab("") + ylab("Percentage") +
@@ -1199,9 +1210,9 @@ figBb <- lineplot_B_sum %>%
                 width=0.5, 
                 position=position_dodge(0.03)) +
   scale_y_continuous(limits = c(4,28), breaks = c(4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28)) +
-  scale_x_discrete(labels = c("1st word \n B n = 141 \n M1 n = 138 \n M2 n = 140",
+  scale_x_discrete(labels = c("1st word \n B n = 140 \n M1 n = 137 \n M2 n = 137",
                               "10 words  \n B n = 50 \n M1 n = 47 \n M2 n = 49",
-                              "50 words  \n B n = 16 \n M1 n = 14 \n M2 n = 8",
+                              "50 words  \n B n = 15 \n M1 n = 14 \n M2 n = 8",
                               "1st multiword \n B n = 34 \n M1 n = 41 \n M2 n = 31",
                               "3-word utt. \n B n = 14 \n M1 n = 18 \n M2 n = 16",
                               "4-word utt. \n B n = 3 \n M1 n = 6 \n M2 n = 5")) +
@@ -1319,9 +1330,9 @@ lineplot_B <- lineplot_B_longer %>%
 # Following Hoijtink, H., Mulder, J., Van Lissa, C., & Gu, X. (2019). A tutorial on testing hypotheses using the Bayes factor. Psychological Methods, 24(5), 539–556. https://doi.org/10.1037/met0000201
 ```
 
-```{r, include = T, echo= T, warning=FALSE}
+##### Crawling
+```{r, include = T, echo=FALSE, warning=FALSE}
 
-# crawling
 prepbf <-  lm(crawling_age~group-1, data=lineplot_B) #Without the -1 regular dummy coding would have been applied
 coef(prepbf)
 set.seed(100)
@@ -1342,6 +1353,10 @@ print(resbf_sa)
 set.seed(100)
 resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2", fraction = 3)
 print(resbf_sa)
+```
+
+##### Babbling
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 # babbling
 prepbf <-  lm(babbling_age~group-1, data=lineplot_B)
@@ -1364,6 +1379,10 @@ print(resbf_sa)
 set.seed(100)
 resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2", fraction = 3)
 print(resbf_sa)
+```
+
+##### Walking
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 # walking
 prepbf <-  lm(walking_age~group-1, data=lineplot_B)
@@ -1386,6 +1405,10 @@ print(resbf_sa)
 set.seed(100)
 resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2", fraction = 3)
 print(resbf_sa)
+```
+
+##### Word1
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 # word1
 prepbf <-  lm(w1~group-1, data=lineplot_B)
@@ -1408,6 +1431,10 @@ print(resbf_sa)
 set.seed(100)
 resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2", fraction = 3)
 print(resbf_sa)
+```
+
+##### Word10
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 # word10
 prepbf <-  lm(w10~group-1, data=lineplot_B)
@@ -1430,6 +1457,10 @@ print(resbf_sa)
 set.seed(100)
 resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2", fraction = 3)
 print(resbf_sa)
+```
+
+##### Word50
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 # word50
 prepbf <-  lm(w50~group-1, data=lineplot_B)
@@ -1452,6 +1483,11 @@ print(resbf_sa)
 set.seed(100)
 resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2", fraction = 3)
 print(resbf_sa)
+```
+
+
+##### Multiword1
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 # multiword1
 prepbf <-  lm(m1~group-1, data=lineplot_B)
@@ -1474,6 +1510,10 @@ print(resbf_sa)
 set.seed(100)
 resbf_sa<-bain(prepbf,"groupBilinguals = groupMonolinguals1 = groupMonolinguals2", fraction = 3)
 print(resbf_sa)
+```
+
+##### Multiword3
+```{r, include = T, echo=FALSE, warning=FALSE}
 
 # multiword3
 prepbf <-  lm(m3~group-1, data=lineplot_B)
