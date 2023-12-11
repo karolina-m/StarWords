@@ -5,7 +5,7 @@ The present dataset contains anonymized information on the particular study part
 
 The data presented here include:
 - **words.csv** - words and neologisms of analyzed participants: their form, meaning, parental comment (if applicable), language(s) the word was assigned to, child's age in months at the moment when the word was reported, child's group (Bilingual/Monolingual) and match (1 or 2).
-  - a word can be assigned to multiple languages (see columns *l1*,*l2*,*l3*, *language*)
+  - a word can be assigned to multiple languages (see columns *l1*, *l2*, *l3*)
   - *word_number* is the ordinal number of a particular word in a given language of a particular child.
 - **multiwords.csv** - utterances of analyzed participants: their form, meaning, parental comment (if applicable), language(s) the multiword was assigned to, child's age when the multiword was reported, child's group, and match.
   - *words_per_utterance* is the length of the utterance in words, based on what the participant reported,
