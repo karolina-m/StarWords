@@ -362,8 +362,8 @@ fig1b <- lineplot_rq1_sum %>%
                 position=position_dodge(0.03)) +
   scale_y_continuous(limits = c(4,28), breaks = c(4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28)) +
   scale_x_discrete(labels = c("1st word \n B n = 140 \n M n = 137",
-                              "10 words  \n B n = 50 \n M n = 47",
-                              "50 words  \n B n = 15 \n M n = 14",
+                              "10th word  \n B n = 50 \n M n = 47",
+                              "50th word  \n B n = 15 \n M n = 14",
                               "1st multiword \n B n = 34 \n M n = 41",
                               "3-word utt. \n B n = 14 \n M n = 18",
                               "4-word utt. \n B n = 3 \n M n = 6")) +
@@ -912,8 +912,8 @@ fig2 <- ggplot(lineplot_sum_rq2, aes(x=milestone, y=age_at_element, group=langua
                 position=position_dodge(0.03)) +
   scale_y_continuous(limits = c(4,28), breaks = c(4,6,8,10, 12, 14, 16, 18, 20, 22, 24, 26, 28)) +
   scale_x_discrete(labels = c("1st word \n n = 86",
-                              "10 words \n n = 15",
-                              "50 words \n n = 0",
+                              "10th word \n n = 15",
+                              "50th word \n n = 0",
                               "1st multiword \n n = 7",
                               "3-word utt. \n n = 1",
                               "4-word utt. \n n = 0")) +
@@ -1211,8 +1211,8 @@ figBb <- lineplot_B_sum %>%
                 position=position_dodge(0.03)) +
   scale_y_continuous(limits = c(4,28), breaks = c(4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28)) +
   scale_x_discrete(labels = c("1st word \n B n = 140 \n M1 n = 137 \n M2 n = 137",
-                              "10 words  \n B n = 50 \n M1 n = 47 \n M2 n = 49",
-                              "50 words  \n B n = 15 \n M1 n = 14 \n M2 n = 8",
+                              "10th word  \n B n = 50 \n M1 n = 47 \n M2 n = 49",
+                              "50th word  \n B n = 15 \n M1 n = 14 \n M2 n = 8",
                               "1st multiword \n B n = 34 \n M1 n = 41 \n M2 n = 31",
                               "3-word utt. \n B n = 14 \n M1 n = 18 \n M2 n = 16",
                               "4-word utt. \n B n = 3 \n M1 n = 6 \n M2 n = 5")) +
