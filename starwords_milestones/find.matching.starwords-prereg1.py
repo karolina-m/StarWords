@@ -7,13 +7,14 @@ import sys,locale,random,math,copy
 # in the second column (column 1): the group (containing values corresponding to the variables gr_ref, gr_from)
 # in the other columns (2, 3, 4, ...) the matching variables. columns we choose are defined by the column numbers in the params variable. 
 
-f = open ("to_match_starwords_prereg1.txt" , "r")
-gr_ref = "BI"
-gr_from = "MONO-PL"
+f = open ("to_match1_starwords_prereg1.txt" , "r")
+gr_ref = "Bilingual"
+gr_from = "Monolingual"
 grupy = { gr_ref:[], gr_from:[] }
-params = [2, 3, 4] 
-wagi = [1, 1, 1]
+params = [2,3,4,5] 
+wagi = [1,1,1,1]
 data = { gr_ref:[], gr_from:[] }
+cycles = 1000
 
 def mean(rts):
     return float(sum(rts)) / len(rts) if (len(rts)) else 0.0
@@ -26,7 +27,7 @@ def sd(rts):
     return math.sqrt(ss / (len(rts) - 1)) if (len(rts) > 1) else 0.0
 
 
-# locale.setlocale(locale.LC_NUMERIC, 'Polish_Poland')
+locale.setlocale(locale.LC_NUMERIC, 'pl_PL.UTF-8')
 
 
 
