@@ -182,7 +182,7 @@ summary(aov(days_reporting ~ group, data = kids))
 ```
 
 ### Our research questions
-1. RQ1: Will bilinguals reach particular motor and language milestones at a similar time as their Polish monolingual peers, **at least in one of their languages**?  
+1. RQ1: Will bilinguals reach particular language milestones at a similar time as their Polish monolingual peers, **at least in one of their languages**?  
 2. RQ2: Will bilinguals reach particular language milestones at a similar time **in both their languages, L1 and L2**? 
 3. `r colorize("RQ3: In bilinguals, is language-specific (L1/L2) mean **input quantity** before reaching a milestone linked to the age of reaching that milestone (in L1/L2)?", "grey")`  
 4. `r colorize("RQ4: In bilinguals, is language-specific (L1/L2) **input quality** linked to the age of reaching language milestones (in L1/L2)?", "grey")`    
@@ -635,7 +635,7 @@ These analyses include the whole bilingual group (n = 302), including children w
 
 
 *Note 1.* For milestones regarding words and utterances: we use the number of words reported by the parent in the app.  
-*Note 2.* If a word/utterance was marked as belonging to two languages (e.g. Polish and English), we count the word twice, for the Polish milestones and the English milestones.  
+*Note 2.* If a word/utterance was marked as belonging to two languages (e.g. Polish and English), we count the word twice, for the Polish milestones and the other-language milestones.  
 *Note 3.* For each milestone, we consider only bilinguals who have this milestone (e.g. w1, w10) reported in both languages.
 
 
@@ -1076,6 +1076,242 @@ input_sum %>%
 ggsave("figA1.jpeg", height = 1400, units = "px", dpi = 300)
 
 ```
+
+### Input hours
+```{r}
+input_hrs <- read.csv2("input_hrs.csv")
+input_hrs <- input_hrs %>% select(child_anonim, question_id, language, answer, typical)
+input_hrs$language <- fct_recode(input_hrs$language, HL = "PL", ML = "L2")
+input_hrs <- input_hrs %>% rename(input_hours_previous_day = "answer")
+input_hrs$input_hours_previous_day <- as.numeric(input_hrs$input_hours_previous_day)
+
+input_hrs <- input_hrs %>%
+   group_by(child_anonim, language) %>% 
+   summarise_at(vars(input_hours_previous_day), mean)
+
+input_hrs <- merge(input_hrs, rq2, by.x = c("child_anonim", "language"),
+                   by.y = c("child_anonim", "language_new"))
+
+
+input_hrs_long <- input_hrs %>%
+  select(child_anonim:m1) %>%
+  pivot_longer(cols = w1:m1, names_to = "milestone", values_to = "age_at_element")
+
+library(ggpubr)
+input_hrs_long %>%
+  ggplot(aes(x = age_at_element, y = input_hours_previous_day, group = language, color = language)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  facet_wrap(~milestone) +
+  stat_cor(method = "spearman",
+           cor.coef.name = "rho",
+           p.accuracy = 0.001,
+           r.accuracy = 0.01, show.legend = F)
+
+```
+
+### Input percentage (HL)
+```{r}
+input_perc <- input_hrs %>%
+  select(child_anonim, language, input_hours_previous_day) %>%
+  pivot_wider(id_cols = c(child_anonim),
+              names_from = language,
+              values_from = input_hours_previous_day)
+
+input_perc <- input_perc %>%
+  rowwise() %>%
+  mutate(input_sum_hrs = sum(HL,ML, na.rm = T),
+    input_perc_HL = (HL/(input_sum_hrs))*100)
+
+input_perc <- input_perc %>%
+  mutate(input_perc_HL = ifelse(is.na(input_perc_HL), 0,input_perc_HL)) #if NA in input_perc_HL, replace with zero
+
+# descriptives - hours
+mean(input_perc$input_sum_hrs, na.rm = T)
+median(input_perc$input_sum_hrs, na.rm = T)
+sd(input_perc$input_sum_hrs, na.rm = T)
+
+# descriptives - %
+mean(input_perc$input_perc_HL, na.rm = T)
+median(input_perc$input_perc_HL, na.rm = T)
+sd(input_perc$input_perc_HL, na.rm = T)
+hist(input_perc$input_perc_HL)
+
+# long df
+input_perc_long <- input_perc %>%
+  pivot_longer(cols = HL:ML, names_to = "language", values_to = "input_hrs")
+
+input_perc_long <- merge(input_perc_long, rq2, by.x = c("child_anonim", "language"),
+                   by.y = c("child_anonim", "language_new"))
+
+input_perc_longer <- input_perc_long %>%
+  select(child_anonim:m1) %>%
+  pivot_longer(cols = w1:m1, names_to = "milestone", values_to = "age_at_element")
+
+input_perc_longer %>%
+  ggplot(aes(x = age_at_element, y = input_perc_HL, group = language, color = language)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  facet_wrap(~milestone) +
+  stat_cor(method = "spearman",
+           cor.coef.name = "rho",
+           p.accuracy = 0.001,
+           r.accuracy = 0.01, show.legend = F)
+
+```
+### Input corr
+```{r}
+# Home language
+
+input_HL <- input_perc_long %>% filter(language == "HL")
+
+hist(input_HL$input_perc_HL)
+hist(input_HL$w1)
+
+cor.test(input_HL$input_perc_HL, input_HL$w1, method = "spearman")
+cor.test(input_HL$input_perc_HL, input_HL$w10, method = "spearman")
+cor.test(input_HL$input_perc_HL, input_HL$m1, method = "spearman")
+
+library(BayesFactor)
+citation("BayesFactor")
+bf = correlationBF(input_HL$input_perc_HL, input_HL$w1)
+bf
+1/bf
+
+samples = posterior(bf, iterations = 10000)
+summary(samples)
+
+
+bf = correlationBF(input_HL$input_perc_HL, input_HL$w10)
+bf
+1/bf
+
+samples = posterior(bf, iterations = 10000)
+summary(samples)
+
+
+bf = correlationBF(input_HL$input_perc_HL, input_HL$m1)
+bf
+1/bf
+
+samples = posterior(bf, iterations = 10000)
+summary(samples)
+```
+
+
+```{r}
+# Majority language
+
+input_ML <- input_perc_long %>% filter(language == "ML")
+
+hist(input_ML$input_perc_HL)
+hist(input_ML$w1)
+
+cor.test(input_ML$input_perc_HL, input_ML$w1, method = "spearman")
+cor.test(input_ML$input_perc_HL, input_ML$w10, method = "spearman")
+
+
+bf = correlationBF(input_ML$input_perc_HL, input_ML$w1)
+bf
+1/bf
+
+samples = posterior(bf, iterations = 10000)
+summary(samples)
+
+
+bf = correlationBF(input_ML$input_perc_HL, input_ML$w10)
+bf
+1/bf
+
+samples = posterior(bf, iterations = 10000)
+summary(samples)
+```
+
+
+### Input lineplot
+```{r}
+input_perc_long %>%
+  ggplot(aes(x = input_perc_HL)) + geom_histogram()
+
+input_perc_long <- input_perc_long %>%
+  mutate(input_group = case_when(
+    input_perc_HL == 50 ~ "balanced",
+    input_perc_HL < 50 ~ "less_HL",
+    input_perc_HL > 50 ~ "more_HL",
+    .default = NA
+  ))
+
+input_perc_long$input_group <- factor(input_perc_long$input_group,
+                                      levels = c("less_HL", "balanced","more_HL"))
+
+input_perc_long %>% ggplot(aes(x = language, y = w1, color = language))+
+  geom_point() +
+  facet_wrap(~input_group)
+
+input_perc_long %>% 
+  ggplot(aes(x = language, y = w1, color = language, group = child_anonim))+
+  geom_point(alpha = 0.6) + geom_line(linetype = "dashed", color = "#636363") +
+  facet_wrap(~input_group) + theme_light()
+
+input_perc_long %>% 
+  ggplot(aes(x = language, y = w10, color = language, group = child_anonim))+
+  geom_point() + geom_line(linetype = "dashed", color = "grey") +
+  facet_wrap(~input_group) + theme_light()
+
+input_perc_long %>% 
+  ggplot(aes(x = language, y = m1, color = language, group = child_anonim))+
+  geom_point() + geom_line(linetype = "dashed", color = "grey") +
+  facet_wrap(~input_group) + theme_light()
+
+```
+
+### Input plot
+```{r}
+
+input_perc_long %>% select(child_anonim) %>% unique()
+
+input_perc_sum <- input_perc_long %>% pivot_longer(cols = w1:m4,
+                                                   names_to = "milestone",
+                                                   values_to = "age_at_element")
+  
+input_perc_sum <- input_perc_sum %>%
+  summarySE(measurevar = "age_at_element",
+            groupvars = c("language", "milestone", "input_group"),
+            na.rm = T)
+
+input_perc_sum$milestone
+input_perc_sum$milestone <- ordered(input_perc_sum$milestone , c("w1", "w10", "w50", "m1", "m3", "m4"))
+input_perc_sum$language <- ordered(input_perc_sum$language , c("HL", "ML"))
+input_perc_sum$input_group <- ordered(input_perc_sum$input_group, c("less_HL", "balanced", "more_HL"))
+
+input_perc_sum %>%
+  ggplot(aes(x=milestone, y=age_at_element, color=input_group)) +
+  geom_point(position=position_dodge(0.4)) +
+  geom_errorbar(aes(ymin=age_at_element-ci, ymax=age_at_element+ci),
+                width=0.5, 
+                position=position_dodge(0.4)) +
+  scale_y_continuous(limits = c(0,48), breaks = c(0, 6, 12, 18, 24, 30, 36, 42, 48)) +
+  scale_x_discrete(labels = c("1st word",
+                              "10th word",
+                              "50th word",
+                              "1st multiword",
+                              "3-word utt.",
+                              "4-word utt.")) +
+  scale_color_brewer(type = "qual", palette = 2) +
+  ylab("Age at reaching milestone") + xlab("")+
+  labs(caption = "Error bars indicate 95% CI")+
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        panel.background = element_rect(fill = "white", colour = "white", linetype = "solid"),
+        panel.grid.major = element_line(linetype = "solid", colour = "grey90")) +
+  facet_wrap(~language)
+
+
+ggsave("fig3.jpeg", dpi = 250, width = 2200, height = 1000, units = "px")
+
+
+```
+
 
 ### Appendix B
 Here we're following the analyses for RQ1 (bilinguals vs. monolinguals) but for three groups: one group of bilingual children and TWO DISTINCT matched groups of monolingual children.
