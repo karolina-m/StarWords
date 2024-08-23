@@ -395,6 +395,155 @@ plot_grid(fig1a, fig1b, title, align = "h",  rel_widths = c(1,2), rel_heights = 
 ggsave("fig1.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
 ```
 
+Figure 1 option A:
+Issue #1
+[] remove crawling and walking but keep babbling in
+[] remove the two facets (panels) and merge into a single plot (and remove caption/title on top)
+[] maybe remove linetype by group and make both lines grey/dotted (and add transparency) to not suggest (so much) the longitudinal aspect of the plot? I don't think removing the lines altogether is a good option, especially since for some (few) children this is longitudinal data.
+[] larger breaks on the y axis? maybe by 6 months? --> did 4 months
+
+```{r Figure 1 option A}
+
+lineplot_rq1_longer_filtered <- lineplot_rq1_longer %>%
+  filter(milestone != "crawling" & milestone != "walking")
+fct_drop(lineplot_rq1_longer_filtered$milestone)
+
+lineplot_rq1_sum <- summarySE(lineplot_rq1_longer_filtered, measurevar = "age_at_element", groupvars = c("milestone", "group"), na.rm = T)
+
+fig1_optA <- lineplot_rq1_sum %>%
+  ggplot(aes(x=milestone, y=age_at_element, group=group, color=group)) + 
+  geom_line(linetype = 2, color = "black", alpha = .3) +
+  geom_point(position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=age_at_element-ci, ymax=age_at_element+ci),
+                width=0.5, 
+                position=position_dodge(0.03)) +
+  scale_y_continuous(limits = c(4,28), breaks = c(4, 8, 12, 16, 20, 24, 28)) +
+  scale_x_discrete(labels = c("Babbling \n B n = 58 \n M n = 54",
+                              "1st word \n B n = 140 \n M n = 137",
+                              "10th word  \n B n = 50 \n M n = 47",
+                              "50th word  \n B n = 15 \n M n = 14",
+                              "1st multiword \n B n = 34 \n M n = 41",
+                              "3-word utt. \n B n = 14 \n M n = 18",
+                              "4-word utt. \n B n = 3 \n M n = 6")) +
+  scale_color_brewer(type = "qual", palette = 6) +
+  labs(y ="Age at reaching milestone", x = NULL,
+       caption = "Error bars indicate 95% CI")  +
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        panel.background = element_rect(fill = "white", colour = "white", linetype = "solid"),
+        panel.grid.major = element_line(linetype = "solid", colour = "grey90"))
+
+fig1_optA
+
+ggsave("fig1_optA.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
+```
+
+Figure 1 option B:
+Suggested by PH and EH
+[] separate plot for babbling, crawling and walking (parental recall)
+[] panel with with vocabulary milestones and utterance (?) milestones
+
+```{r Figure 1 option B}
+lineplot_rq1_sum <- summarySE(lineplot_rq1_longer, measurevar = "age_at_element", groupvars = c("milestone", "group"), na.rm = T)
+
+lineplot_rq1_sum <- lineplot_rq1_sum %>%
+  mutate(source = dplyr::case_when(
+    milestone == "babbling" ~ "parental recall",
+    milestone == "crawling" ~ "parental recall",
+    milestone == "walking" ~ "parental recall",
+    milestone == "w1" ~ "vocabulary milestone",
+    milestone == "w10" ~ "vocabulary milestone",
+    milestone == "w50" ~ "vocabulary milestone",
+    TRUE ~ "utterance milestone",
+  ))
+
+#only recall
+fig1_optB <- lineplot_rq1_sum %>%
+  filter(source == "parental recall") %>%
+  ggplot(aes(x=milestone, y=age_at_element, group=group, color=group)) + 
+  geom_line(linetype = 2, color = "black", alpha = .3) +
+  geom_point(position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=age_at_element-ci, ymax=age_at_element+ci),
+                width=0.5, 
+                position=position_dodge(0.03)) +
+  scale_y_continuous(limits = c(4,28), breaks = c(4, 8, 12, 16, 20, 24, 28)) +
+  scale_x_discrete(labels = c("Crawling \n B n = 77 \n M n = 74",
+                              "Babbling \n B n = 58 \n M n = 54",
+                              "Walking \n B n = 49 \n M n = 43")) +
+  scale_color_brewer(type = "qual", palette = 6) +
+  labs(title = "Parental report/recall") +
+  ylab("Age at reaching milestone") + xlab("") +
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        panel.background = element_rect(fill = "white", colour = "white", linetype = "solid"),
+        panel.grid.major = element_line(linetype = "solid", colour = "grey90"))
+
+fig1a_optB
+
+fig1b_optB <- lineplot_rq1_sum %>%
+  filter(source == "vocabulary milestone") %>%
+  ggplot(aes(x=milestone, y=age_at_element, group=group, color=group)) + 
+  geom_line(linetype = 2, color = "black", alpha = .3) +
+  geom_point(position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=age_at_element-ci, ymax=age_at_element+ci),
+                width=0.5, 
+                position=position_dodge(0.03)) +
+  scale_y_continuous(limits = c(4,28), breaks = c(4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28)) +
+  scale_x_discrete(labels = c("1st word \n B n = 140 \n M n = 137",
+                              "10th word  \n B n = 50 \n M n = 47",
+                              "50th word  \n B n = 15 \n M n = 14")) +
+  scale_color_brewer(type = "qual", palette = 6) +
+  ylab("Age at reaching milestone") + xlab("") +
+  labs(title = "Vocabulary milestones") +
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        panel.background = element_rect(fill = "white", colour = "white", linetype = "solid"),
+        panel.grid.major = element_line(linetype = "solid", colour = "grey90"))
+
+fig1b_optB
+
+fig1c_optB <- lineplot_rq1_sum %>%
+  filter(source == "utterance milestone") %>%
+  ggplot(aes(x=milestone, y=age_at_element, group=group, color=group)) + 
+  geom_line(linetype = 2, color = "black", alpha = .3) +
+  geom_point(position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=age_at_element-ci, ymax=age_at_element+ci),
+                width=0.5, 
+                position=position_dodge(0.03)) +
+  scale_y_continuous(limits = c(4,28), breaks = c(4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28)) +
+  scale_x_discrete(labels = c("1st multiword \n B n = 34 \n M n = 41",
+                              "3-word utt. \n B n = 14 \n M n = 18",
+                              "4-word utt. \n B n = 3 \n M n = 6")) +
+  scale_color_brewer(type = "qual", palette = 6) +
+  ylab("Age at reaching milestone") + xlab("") +
+  labs(title = "Utterance milestones") +
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        panel.background = element_rect(fill = "white", colour = "white", linetype = "solid"),
+        panel.grid.major = element_line(linetype = "solid", colour = "grey90"))
+
+fig1c_optB
+
+legend_bottom <- get_legend(
+  fig1b_optB + 
+    guides(color = guide_legend(nrow = 1)) +
+    theme(legend.position = "bottom"))
+
+legend_right <- get_legend(
+  # create some space to the left of the legend
+  fig1c_optB + theme(legend.box.margin = margin(0, 0, 0, 50)))
+
+title <- ggdraw() + 
+  draw_label("Error bars indicate 95% CI", size = 9, hjust = 1, vjust = 5) +
+  theme(
+    # add margin on the left of the drawing canvas,
+    # so title is aligned with left edge of first plot
+    plot.margin = margin(0, 0, 0, 50))
+
+plot_grid(fig1b_optB, fig1c_optB, title, align = "h",  rel_widths = c(1,2), rel_heights = c(1, .1))
+#ggsave("fig1.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
+```
+
 #### RQ1: t-tests
 ```{r ttest, include = T, echo = F}
 
