@@ -458,7 +458,7 @@ lineplot_rq1_sum <- lineplot_rq1_sum %>%
   ))
 
 #only recall
-fig1_optB <- lineplot_rq1_sum %>%
+fig1a_optB <- lineplot_rq1_sum %>%
   filter(source == "parental recall") %>%
   ggplot(aes(x=milestone, y=age_at_element, group=group, color=group)) + 
   geom_line(linetype = 2, color = "black", alpha = .3) +
@@ -471,8 +471,8 @@ fig1_optB <- lineplot_rq1_sum %>%
                               "Babbling \n B n = 58 \n M n = 54",
                               "Walking \n B n = 49 \n M n = 43")) +
   scale_color_brewer(type = "qual", palette = 6) +
-  labs(title = "Parental report/recall") +
-  ylab("Age at reaching milestone") + xlab("") +
+  labs(y ="Age at reaching milestone", x = NULL,
+       caption = "Error bars indicate 95% CI")  +
   theme(legend.position = "bottom",
         legend.title = element_blank(),
         panel.background = element_rect(fill = "white", colour = "white", linetype = "solid"),
@@ -541,7 +541,8 @@ title <- ggdraw() +
     plot.margin = margin(0, 0, 0, 50))
 
 plot_grid(fig1b_optB, fig1c_optB, title, align = "h",  rel_widths = c(1,2), rel_heights = c(1, .1))
-#ggsave("fig1.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
+ggsave("fig1_optB.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
+ggsave("fig1a_optB_recall.jpeg",fig1a_optB, dpi = 250, width = 1900, height = 1000, units = "px")
 ```
 
 #### RQ1: t-tests
