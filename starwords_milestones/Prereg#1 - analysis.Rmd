@@ -240,7 +240,7 @@ multiwords_wider <- multiwords_wider %>%
 rq1 <- merge(kids[, c("child_anonim", "match", "group")], multiwords_wider, by = "child_anonim", all.x = T)
 rq1 <- merge(rq1, words_rq1_wider[, c("child_anonim", "w1", "w10", "w50")], by = "child_anonim", all.x = T)
 
-# # bierzemy tylko match 1
+# # we take match 1 only
 # rq1 <- rq1 %>% filter(group == "Bilinguals" | group == "Monolinguals1")
 
 ```
