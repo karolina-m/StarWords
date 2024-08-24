@@ -443,7 +443,7 @@ fig1_optA
 
 #ggsave("fig1_optA.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
 ```
-
+##### Figure 1 alternative option B:
 Figure 1 option B:
 Suggested by PH and EH
 [x] panel with with vocabulary milestones and utterance (?) milestones
@@ -518,7 +518,7 @@ fig1a_optB <- lineplot_rq1_sum %>%
 fig1a_optB
 
 #utterance milestones
-fig1b_optB <- lineplot_rq1_sum_filtered %>%
+fig1b_optB <- lineplot_rq1_sum %>%
   filter(source == "utterance milestone") %>%
   ggplot(aes(x=milestone, y=age_at_element, group=group, color=group)) + 
   geom_line(linetype = 2, color = "black", alpha = .3) +
@@ -1088,6 +1088,48 @@ fig2
 ggsave("fig2.jpeg", dpi = 250, width = 1700, height = 1000, units = "px")
 
 
+```
+
+##### Figure 2 alternative
+
+[x] maybe remove linetype by group and make both lines grey/dotted (and add transparency) to not suggest (so much) the longitudinal aspect of the plot? I don't think removing the lines altogether is a good option, especially since for some (few) children this is longitudinal data.
+[x] larger breaks on the y axis? maybe by 6 months? --> MK: did 4 months
+
+```{r}
+# Figure 2 - data from all bilinguals (with various majority languages)
+
+lineplot_sum_rq2$milestone
+lineplot_sum_rq2$milestone <- ordered(lineplot_sum_rq2$milestone , c("w1", "w10", "w50", "m1", "m3", "m4"))
+lineplot_sum_rq2$language_new <- ordered(lineplot_sum_rq2$language_new , c("HL", "ML"))
+
+
+lineplot_sum_rq2 <- as.data.frame(lineplot_sum_rq2)
+
+fig2_alternative <- ggplot(lineplot_sum_rq2, aes(x=milestone, y=age_at_element, group=language_new, color=language_new)) + 
+  geom_line(linetype = 2, color = "black", alpha = .3) + #remove coloring by group and alpha
+  geom_point(position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=age_at_element-ci, ymax=age_at_element+ci),
+                width=0.5, 
+                position=position_dodge(0.03)) +
+  scale_y_continuous(limits = c(4,28), breaks = c(4, 8, 12, 16, 20, 24, 28)) +
+  scale_x_discrete(labels = c("w1" = "1st word \n n = 86",
+                              "w10" = "10th word \n n = 15",
+                              "w50" = "50th word \n n = 0",
+                              "m1" = "1st multiword \n n = 7",
+                              "m3" = "3-word utt. \n n = 1",
+                              "m4"  = "4-word utt. \n n = 0")) +
+  scale_color_brewer(type = "qual", palette = 2, labels = c("Home language (Polish)", "Majority language")) +
+  scale_linetype_manual(values = c("solid", "dashed"), labels = c("Home language (Polish)", "Majority language")) +
+  ylab("Age at reaching milestone") + xlab("") +
+  labs(title = "Parental report", caption = "Error bars indicate 95% CI") +
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        plot.caption = element_text(hjust = 0), #caption to the left
+        panel.background = element_rect(fill = "white", colour = "white", linetype = "solid"),
+        panel.grid.major = element_line(linetype = "solid", colour = "grey90"))
+
+fig2_alternative
+ggsave("fig2_alternative.jpeg", dpi = 250, width = 1700, height = 1000, units = "px")
 ```
 
 
