@@ -441,7 +441,7 @@ fig1_optA <- lineplot_rq1_sum_filtered %>%
 
 fig1_optA
 
-ggsave("fig1_optA.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
+#ggsave("fig1_optA.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
 ```
 
 Figure 1 option B:
@@ -491,7 +491,7 @@ fig1_optB_recall <- lineplot_rq1_sum %>%
 
 fig1_optB_recall 
 #save and change width and height
-ggsave("fig1_optB_recall.jpeg", dpi = 250, width = 1000, height = 1000, units = "px")
+#ggsave("fig1_optB_recall.jpeg", dpi = 250, width = 1000, height = 1000, units = "px")
 
 #vocabulary milestones
 fig1a_optB <- lineplot_rq1_sum %>%
@@ -550,7 +550,7 @@ legend_right <- get_legend(
   fig1b_optB + theme(legend.box.margin = margin(0, 0, 0, 50)))
 
 plot_grid(fig1a_optB, fig1b_optB, align = "h",  rel_widths = c(1,2), rel_heights = c(1, .1))
-ggsave("fig1a_optB.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
+#ggsave("fig1a_optB.jpeg", dpi = 250, width = 1900, height = 1000, units = "px")
 ```
 
 #### RQ1: t-tests
